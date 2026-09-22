@@ -123,7 +123,7 @@ function Index() {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -60, opacity: 0 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="fixed top-0 left-0 right-0 max-w-[430px] mx-auto z-50 flex h-14 items-center justify-between border-b border-gold/30 bg-maroon/95 px-6 backdrop-blur-md safe-top shadow-soft"
+            className="fixed top-0 left-0 right-0 z-50 flex h-14 items-center justify-between border-b border-gold/30 bg-maroon/95 px-6 backdrop-blur-md safe-top shadow-soft"
           >
             {/* Calligraphy Initials logo */}
             <div 
@@ -163,7 +163,7 @@ function Index() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 max-w-[430px] mx-auto z-40 flex flex-col items-center justify-center bg-maroon/95 backdrop-blur-lg"
+            className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-maroon/95 backdrop-blur-lg"
           >
             {/* Decorative floral motifs background */}
             <div className="absolute inset-4 pointer-events-none rounded-[1.5rem] border border-gold/10" />
@@ -267,12 +267,12 @@ function Hero({ onOpen }: { onOpen: () => void }) {
       <FloatingPetals count={15} />
       <FloatingButterflies count={12} />
       <motion.div 
-        className="absolute inset-4 sm:inset-6 z-10 border-2 border-gold/30 arch-frame pointer-events-none"
+        className="absolute inset-6 sm:inset-10 z-10 border-2 border-gold/30 arch-frame pointer-events-none"
         style={{ opacity: foregroundOpacity }}
       ></motion.div>
       
       <motion.div 
-        className="relative z-10 w-full max-w-md mx-auto h-full flex flex-col items-center justify-start pt-[6vh] sm:pt-[8vh] px-4"
+        className="relative z-10 w-full max-w-md mx-auto h-full flex flex-col items-center justify-start pt-[6vh] sm:pt-[8vh] px-10 sm:px-14"
         style={{ opacity: foregroundOpacity, y: foregroundY }}
       >
         {/* Ganesha illustration */}
@@ -436,7 +436,7 @@ function RevealSection() {
 
       {/* Brief celebration confetti — subtle, fades after 3 seconds */}
       {showConfetti && (
-        <div className="fixed inset-0 max-w-[430px] mx-auto z-[100] pointer-events-none">
+        <div className="fixed inset-0 z-[100] pointer-events-none">
           <Confetti 
             width={width} 
             height={height} 
@@ -773,7 +773,7 @@ function RevealSection() {
           <AnimatePresence>
             {showMapChoice && (
               <motion.div
-                className="fixed inset-0 max-w-[430px] mx-auto z-[200] flex items-center justify-center"
+                className="fixed inset-0 z-[200] flex items-center justify-center"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -837,7 +837,7 @@ function RevealSection() {
           <AnimatePresence>
             {showPreWeddingMapChoice && (
               <motion.div
-                className="fixed inset-0 max-w-[430px] mx-auto z-[200] flex items-center justify-center"
+                className="fixed inset-0 z-[200] flex items-center justify-center"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -899,7 +899,7 @@ function RevealSection() {
           <AnimatePresence>
             {showCalendarChoice && (
               <motion.div
-                className="fixed inset-0 max-w-[430px] mx-auto z-[200] flex items-end justify-center"
+                className="fixed inset-0 z-[200] flex items-end justify-center"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -966,7 +966,7 @@ function RevealSection() {
           <AnimatePresence>
             {showPreWeddingCalendarChoice && (
               <motion.div
-                className="fixed inset-0 max-w-[430px] mx-auto z-[200] flex items-end justify-center"
+                className="fixed inset-0 z-[200] flex items-end justify-center"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}

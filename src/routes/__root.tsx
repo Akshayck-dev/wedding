@@ -134,8 +134,8 @@ function RootShell({ children }: { children: ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body className="overflow-x-hidden bg-[#1A1110]">
-        <div className="mx-auto w-full max-w-[430px] min-h-[100dvh] bg-background shadow-2xl relative">
+      <body className="overflow-x-hidden bg-background">
+        <div className="w-full min-h-[100dvh] bg-background relative">
           {children}
         </div>
         <Scripts />
