@@ -48,9 +48,9 @@ export function EnvelopeReveal({ onComplete }: { onComplete?: () => void }) {
         
         {/* Envelope Image */}
         <img 
-          src="/start-envelope.png" 
+          src="/Photo.jpg.jpeg" 
           alt="" 
-          className="absolute inset-0 w-full h-full object-fill object-center pointer-events-none"
+          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none opacity-90"
         />
 
         {/* Interactive Seal & Text */}
@@ -72,7 +72,7 @@ export function EnvelopeReveal({ onComplete }: { onComplete?: () => void }) {
 
               {/* Glowing Interactive Area placed over the physical image seal */}
               <motion.div
-                className="absolute left-1/2 top-[55%] -translate-x-1/2 -translate-y-1/2 z-30 flex items-center justify-center cursor-pointer"
+                className="absolute left-1/2 bottom-[30vh] -translate-x-1/2 z-30 flex items-center justify-center cursor-pointer"
                 onClick={handleOpen}
                 initial={{ scale: 1, opacity: 1 }}
                 animate={stage === "seal-clicked" ? { scale: 1.3, opacity: 0, filter: "brightness(2)" } : { scale: 1, opacity: 1 }}

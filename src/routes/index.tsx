@@ -3,12 +3,12 @@ import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { MapPin, Navigation, Calendar, Clock, ZoomIn, Download, X } from "lucide-react";
 
-import heroBg from "@/assets/media-generation-wedding-bg-pastel-watercolor-0-9d4d1e1e-3b4a-47b2-b37e-f67fa2d69e34 copy.webp";
-import heroBgDesktop from "@/assets/media-generation-wedding-bg-pastel-watercolor-0-9d4d1e1e-3b4a-47b2-b37e-f67fa2d69e34 copy.webp";
+import heroBg from "@/assets/pre_wedding_bg.webp";
+import heroBgDesktop from "@/assets/pre_wedding_bg.webp";
 import rose from "@/assets/rose.webp";
 import cardImg from "@/assets/card.webp";
 import ganeshaImg from "@/assets/ChatGPT Image Sep 21, 2026, 12_43_39 PM.webp";
-import revealBg from "@/assets/2f226d93-2b02-4658-a101-1ee9c8668a5a.webp";
+import revealBg from "@/assets/media-generation-wedding-bg-pastel-watercolor-0-9d4d1e1e-3b4a-47b2-b37e-f67fa2d69e34 copy.webp";
 import preWeddingBg from "@/assets/pre_wedding_bg.webp";
 import weddingBg from "@/assets/wedding_bg.webp";
 import { FloatingPetals } from "@/components/wedding/FloatingPetals";
@@ -27,12 +27,14 @@ import Confetti from "react-confetti";
 import { useWindowSize } from "react-use";
 
 const MAP_URL =
-  "https://www.google.com/maps/place/Royal+Orchid+Central+Bengaluru/@12.974846,77.612837,17z";
+  "https://www.google.com/maps/dir/?api=1&destination=Royal+Orchid+Central+Bengaluru";
 const MAP_EMBED =
-  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.953185887163!2d77.6128373745047!3d12.974846087340813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae16846913b3b1%3A0xb60950daef881157!2sRoyal%20Orchid%20Central%20Bengaluru!5e0!3m2!1sen!2sin!4v1790015072548!5m2!1sen!2sin";
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.953185887163!2d77.6128373745047!3d12.974846087340813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae16846913b3b1%3A0xb60950daef881157!2sRoyal%20Orchid%20Central%20Bengaluru!5e0!3m2!1sen!2sin!4v1790098235146!5m2!1sen!2sin";
 
 const WEDDING_MAP_URL =
-  "https://www.google.com/maps/place/The+Ritz-Carlton+Bangalore/@12.9716,77.6033,17z";
+  "https://www.google.com/maps/dir/?api=1&destination=The+Ritz-Carlton+Bangalore";
+const WEDDING_MAP_EMBED =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.953185887163!2d77.6128373745047!3d12.974846087340813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1678b41def33%3A0xfe8ae8000ba8c87f!2sThe%20Ritz-Carlton%2C%20Bangalore!5e0!3m2!1sen!2sin!4v1790098547552!5m2!1sen!2sin";
 const WEDDING_APPLE_MAPS_URL =
   "https://maps.apple.com/?address=No.+99+Residency+Road,+Bengaluru,+Karnataka+560025,+India&ll=12.9716,77.6033&q=The+Ritz-Carlton+Bangalore";
 
@@ -121,7 +123,7 @@ function Index() {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -60, opacity: 0 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="fixed top-0 left-0 right-0 z-50 flex h-14 items-center justify-between border-b border-gold/30 bg-maroon/95 px-6 backdrop-blur-md safe-top shadow-soft"
+            className="fixed top-0 left-0 right-0 max-w-[430px] mx-auto z-50 flex h-14 items-center justify-between border-b border-gold/30 bg-maroon/95 px-6 backdrop-blur-md safe-top shadow-soft"
           >
             {/* Calligraphy Initials logo */}
             <div 
@@ -161,7 +163,7 @@ function Index() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-maroon/95 backdrop-blur-lg"
+            className="fixed inset-0 max-w-[430px] mx-auto z-40 flex flex-col items-center justify-center bg-maroon/95 backdrop-blur-lg"
           >
             {/* Decorative floral motifs background */}
             <div className="absolute inset-4 pointer-events-none rounded-[1.5rem] border border-gold/10" />
@@ -303,11 +305,11 @@ function Hero({ onOpen }: { onOpen: () => void }) {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2.6, duration: 1, ease: "easeOut" }}
-          className="text-center mb-6 max-w-[320px]"
+          className="text-center mb-6 max-w-[340px]"
         >
-          <p className="text-[10px] sm:text-[11px] leading-[2.2] text-[#5C4524] font-serif drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)] tracking-[0.15em] uppercase">
+          <p className="text-[12px] sm:text-[13px] leading-[2.2] text-[#2C1810] font-serif font-bold drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)] tracking-[0.15em] uppercase">
             WITH HEARTS FULL OF JOY,<br/>
-            <span className="text-[#4A371C]">DR. AJAYA NATH AND LATE DR. ASHOK KUMAR</span><br/>
+            <span className="text-[#1A0F0A]">DR. AJAYA NATH AND LATE DR. ASHOK KUMAR</span><br/>
             JOYFULLY INVITE YOU TO CELEBRATE THE WEDDING<br/>
             FESTIVITIES OF THEIR DAUGHTER
           </p>
@@ -364,8 +366,8 @@ function Hero({ onOpen }: { onOpen: () => void }) {
           transition={{ delay: 3.3, duration: 1 }}
           className="flex flex-col items-center text-center mb-4"
         >
-          <p className="text-[10px] sm:text-[11px] text-[#5C4524] font-serif font-bold mb-1 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)] tracking-[0.2em] uppercase">SON OF</p>
-          <p className="text-[10px] sm:text-[11px] leading-[1.8] text-[#5C4524] font-serif drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)] tracking-[0.15em] uppercase">
+          <p className="text-[12px] sm:text-[13px] text-[#2C1810] font-serif font-bold mb-1 drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)] tracking-[0.2em] uppercase">SON OF</p>
+          <p className="text-[12px] sm:text-[13px] leading-[1.8] text-[#1A0F0A] font-serif font-bold drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)] tracking-[0.15em] uppercase">
             MRS. SARITA SINHA AND MR. SHASHANK SINHA
           </p>
         </motion.div>
@@ -424,7 +426,7 @@ function RevealSection() {
   const foregroundOpacity = useTransform(scrollY, [0, 400], [1, 0]);
 
   return (
-    <Section id="reveal" className="pt-10 pb-8 flex flex-col items-center relative overflow-hidden">
+    <Section id="reveal" className="pt-10 pb-8 flex flex-col items-center relative z-50 overflow-hidden">
       <div className="relative z-10 w-full flex flex-col items-center">
         <FloatingButterflies count={12} />
       <motion.div 
@@ -434,7 +436,7 @@ function RevealSection() {
 
       {/* Brief celebration confetti — subtle, fades after 3 seconds */}
       {showConfetti && (
-        <div className="fixed inset-0 z-[100] pointer-events-none">
+        <div className="fixed inset-0 max-w-[430px] mx-auto z-[100] pointer-events-none">
           <Confetti 
             width={width} 
             height={height} 
@@ -771,7 +773,7 @@ function RevealSection() {
           <AnimatePresence>
             {showMapChoice && (
               <motion.div
-                className="fixed inset-0 z-[200] flex items-end justify-center"
+                className="fixed inset-0 max-w-[430px] mx-auto z-[200] flex items-center justify-center"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -791,33 +793,32 @@ function RevealSection() {
                   exit={{ y: 100, opacity: 0 }}
                   transition={{ type: 'spring', damping: 28, stiffness: 300 }}
                 >
-                  {/* Handle */}
                   <div className="flex justify-center pt-3 pb-1">
                     <div className="w-8 h-1 rounded-full bg-gold/30"></div>
                   </div>
 
                   <p className="text-center text-[10px] tracking-[0.25em] text-gold/80 uppercase font-semibold pt-3 pb-4">
-                    Choose Your Map
+                    Location Map
                   </p>
 
-                  <div className="flex flex-col gap-2 px-5 pb-5">
+                  <div className="px-5 pb-5">
+                    <div className="w-full h-64 rounded-xl overflow-hidden border border-gold/30 mb-4 bg-black/20">
+                      <iframe 
+                        src={WEDDING_MAP_EMBED} 
+                        className="w-full h-full border-0" 
+                        allowFullScreen 
+                        loading="lazy" 
+                        referrerPolicy="no-referrer-when-downgrade"
+                      />
+                    </div>
                     <a
                       href={WEDDING_MAP_URL}
                       target="_blank"
                       rel="noreferrer"
                       onClick={() => setShowMapChoice(false)}
-                      className="flex items-center justify-center gap-2.5 w-full py-3 rounded-xl border border-gold/30 bg-gold/10 text-gold text-[11px] font-bold tracking-[0.15em] uppercase hover:bg-gold hover:text-maroon transition-all duration-300"
+                      className="flex items-center justify-center gap-2.5 w-full py-3 rounded-xl border border-gold/30 bg-gold text-maroon text-[11px] font-bold tracking-[0.15em] uppercase hover:bg-gold-soft hover:-translate-y-0.5 transition-all duration-300"
                     >
-                      Google Maps
-                    </a>
-                    <a
-                      href={WEDDING_APPLE_MAPS_URL}
-                      target="_blank"
-                      rel="noreferrer"
-                      onClick={() => setShowMapChoice(false)}
-                      className="flex items-center justify-center gap-2.5 w-full py-3 rounded-xl border border-gold/30 bg-gold/10 text-gold text-[11px] font-bold tracking-[0.15em] uppercase hover:bg-gold hover:text-maroon transition-all duration-300"
-                    >
-                      Apple Maps
+                      Navigate
                     </a>
                   </div>
 
@@ -825,7 +826,7 @@ function RevealSection() {
                     onClick={() => setShowMapChoice(false)}
                     className="w-full py-3 text-[10px] tracking-[0.2em] text-ivory/40 uppercase font-semibold hover:text-ivory/70 transition-colors border-t border-gold/15"
                   >
-                    Cancel
+                    Close
                   </button>
                 </motion.div>
               </motion.div>
@@ -836,7 +837,7 @@ function RevealSection() {
           <AnimatePresence>
             {showPreWeddingMapChoice && (
               <motion.div
-                className="fixed inset-0 z-[200] flex items-end justify-center"
+                className="fixed inset-0 max-w-[430px] mx-auto z-[200] flex items-center justify-center"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -859,27 +860,27 @@ function RevealSection() {
                   </div>
 
                   <p className="text-center text-[10px] tracking-[0.25em] text-gold/80 uppercase font-semibold pt-3 pb-4">
-                    Choose Your Map
+                    Location Map
                   </p>
 
-                  <div className="flex flex-col gap-2 px-5 pb-5">
+                  <div className="px-5 pb-5">
+                    <div className="w-full h-64 rounded-xl overflow-hidden border border-gold/30 mb-4 bg-black/20">
+                      <iframe 
+                        src={MAP_EMBED} 
+                        className="w-full h-full border-0" 
+                        allowFullScreen 
+                        loading="lazy" 
+                        referrerPolicy="no-referrer-when-downgrade"
+                      />
+                    </div>
                     <a
                       href={MAP_URL}
                       target="_blank"
                       rel="noreferrer"
                       onClick={() => setShowPreWeddingMapChoice(false)}
-                      className="flex items-center justify-center gap-2.5 w-full py-3 rounded-xl border border-gold/30 bg-gold/10 text-gold text-[11px] font-bold tracking-[0.15em] uppercase hover:bg-gold hover:text-maroon transition-all duration-300"
+                      className="flex items-center justify-center gap-2.5 w-full py-3 rounded-xl border border-gold/30 bg-gold text-maroon text-[11px] font-bold tracking-[0.15em] uppercase hover:bg-gold-soft hover:-translate-y-0.5 transition-all duration-300"
                     >
-                      Google Maps
-                    </a>
-                    <a
-                      href={PRE_WEDDING_APPLE_MAPS_URL}
-                      target="_blank"
-                      rel="noreferrer"
-                      onClick={() => setShowPreWeddingMapChoice(false)}
-                      className="flex items-center justify-center gap-2.5 w-full py-3 rounded-xl border border-gold/30 bg-gold/10 text-gold text-[11px] font-bold tracking-[0.15em] uppercase hover:bg-gold hover:text-maroon transition-all duration-300"
-                    >
-                      Apple Maps
+                      Navigate
                     </a>
                   </div>
 
@@ -887,7 +888,7 @@ function RevealSection() {
                     onClick={() => setShowPreWeddingMapChoice(false)}
                     className="w-full py-3 text-[10px] tracking-[0.2em] text-ivory/40 uppercase font-semibold hover:text-ivory/70 transition-colors border-t border-gold/15"
                   >
-                    Cancel
+                    Close
                   </button>
                 </motion.div>
               </motion.div>
@@ -898,7 +899,7 @@ function RevealSection() {
           <AnimatePresence>
             {showCalendarChoice && (
               <motion.div
-                className="fixed inset-0 z-[200] flex items-end justify-center"
+                className="fixed inset-0 max-w-[430px] mx-auto z-[200] flex items-end justify-center"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -965,7 +966,7 @@ function RevealSection() {
           <AnimatePresence>
             {showPreWeddingCalendarChoice && (
               <motion.div
-                className="fixed inset-0 z-[200] flex items-end justify-center"
+                className="fixed inset-0 max-w-[430px] mx-auto z-[200] flex items-end justify-center"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}

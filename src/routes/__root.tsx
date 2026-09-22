@@ -110,14 +110,34 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   errorComponent: ErrorComponent,
 });
 
+import Lenis from "lenis";
+
 function RootShell({ children }: { children: ReactNode }) {
+  useEffect(() => {
+    const lenis = new Lenis({
+      autoRaf: true,
+    });
+    
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
   return (
     <html lang="en">
       <head>
         <HeadContent />
       </head>
-      <body className="overflow-x-hidden">
-        {children}
+      <body className="overflow-x-hidden bg-[#1A1110]">
+        <div className="mx-auto w-full max-w-[430px] min-h-[100dvh] bg-background shadow-2xl relative">
+          {children}
+        </div>
         <Scripts />
       </body>
     </html>

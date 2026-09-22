@@ -1,11 +1,15 @@
 import { useState, type FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Heart, Sparkles, Minus, Plus } from "lucide-react";
+import { Heart, Sparkles, Minus, Plus, Loader2 } from "lucide-react";
 import { Reveal } from "./Reveal";
+
+// TODO: Replace this URL with your Google Apps Script Web App URL
+const GOOGLE_SCRIPT_URL = "YOUR_GOOGLE_SCRIPT_URL_HERE";
 
 export function RsvpForm() {
   const [selection, setSelection] = useState<"yes" | "no" | null>(null);
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [guests, setGuests] = useState(1);
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
@@ -13,6 +17,7 @@ export function RsvpForm() {
   const resetForm = () => {
     setSelection(null);
     setSubmitted(false);
+    setIsSubmitting(false);
     setGuests(1);
     setName("");
     setMessage("");
@@ -22,9 +27,42 @@ export function RsvpForm() {
     setGuests((prev) => Math.max(1, Math.min(10, prev + change)));
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    
+    if (!name.trim()) return;
+
+    setIsSubmitting(true);
+
+    try {
+      if (GOOGLE_SCRIPT_URL !== "YOUR_GOOGLE_SCRIPT_URL_HERE") {
+        // Send data to Google Apps Script
+        const formData = new FormData();
+        formData.append("timestamp", new Date().toLocaleString());
+        formData.append("name", name);
+        formData.append("attending", selection === "yes" ? "Yes" : "No");
+        formData.append("guests", selection === "yes" ? guests.toString() : "0");
+        formData.append("message", message);
+
+        await fetch(GOOGLE_SCRIPT_URL, {
+          method: "POST",
+          body: formData,
+          mode: "no-cors" // Important for Google Apps Script
+        });
+      }
+      
+      // Simulate network delay if URL is not set
+      if (GOOGLE_SCRIPT_URL === "YOUR_GOOGLE_SCRIPT_URL_HERE") {
+        await new Promise(resolve => setTimeout(resolve, 1000));
+      }
+
+      setSubmitted(true);
+    } catch (error) {
+      console.error("Failed to submit RSVP", error);
+      setSubmitted(true); 
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -100,50 +138,45 @@ export function RsvpForm() {
                   onSubmit={handleSubmit}
                   className="w-full max-w-sm flex flex-col gap-6 overflow-hidden"
                 >
-                  {selection === "yes" && (
-                    <>
-                      {/* Name Field */}
-                      <div className="flex flex-col text-left">
-                        <label className="text-[10px] tracking-[0.2em] text-gold/80 uppercase font-bold mb-2 ml-1">
-                          Your Name
-                        </label>
-                        <input
-                          type="text"
-                          required
-                          value={name}
-                          onChange={(e) => setName(e.target.value)}
-                          placeholder="Enter your name"
-                          className="w-full bg-transparent border-b border-gold/40 px-2 py-2 text-ivory placeholder-ivory/30 focus:outline-none focus:border-gold transition-colors text-sm"
-                        />
-                      </div>
+                  <div className="flex flex-col text-left">
+                    <label className="text-[10px] tracking-[0.2em] text-gold/80 uppercase font-bold mb-2 ml-1">
+                      Your Name
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      placeholder="Enter your name"
+                      className="w-full bg-transparent border-b border-gold/40 px-2 py-2 text-ivory placeholder-ivory/30 focus:outline-none focus:border-gold transition-colors text-sm"
+                    />
+                  </div>
 
-                      {/* Number of Guests */}
-                      <div className="flex flex-col text-left">
-                        <label className="text-[10px] tracking-[0.2em] text-gold/80 uppercase font-bold mb-3 ml-1">
-                          Number of Guests
-                        </label>
-                        <div className="flex items-center justify-between border border-gold/40 rounded-full px-4 py-2 w-32 bg-maroon-deep">
-                          <button
-                            type="button"
-                            onClick={() => handleGuestChange(-1)}
-                            className="text-gold hover:text-ivory transition-colors p-1"
-                          >
-                            <Minus size={14} />
-                          </button>
-                          <span className="text-ivory font-semibold text-sm">{guests}</span>
-                          <button
-                            type="button"
-                            onClick={() => handleGuestChange(1)}
-                            className="text-gold hover:text-ivory transition-colors p-1"
-                          >
-                            <Plus size={14} />
-                          </button>
-                        </div>
+                  {selection === "yes" && (
+                    <div className="flex flex-col text-left">
+                      <label className="text-[10px] tracking-[0.2em] text-gold/80 uppercase font-bold mb-3 ml-1">
+                        Number of Guests
+                      </label>
+                      <div className="flex items-center justify-between border border-gold/40 rounded-full px-4 py-2 w-32 bg-maroon-deep">
+                        <button
+                          type="button"
+                          onClick={() => handleGuestChange(-1)}
+                          className="text-gold hover:text-ivory transition-colors p-1"
+                        >
+                          <Minus size={14} />
+                        </button>
+                        <span className="text-ivory font-semibold text-sm">{guests}</span>
+                        <button
+                          type="button"
+                          onClick={() => handleGuestChange(1)}
+                          className="text-gold hover:text-ivory transition-colors p-1"
+                        >
+                          <Plus size={14} />
+                        </button>
                       </div>
-                    </>
+                    </div>
                   )}
 
-                  {/* Optional Message Field */}
                   <div className="flex flex-col text-left">
                     <label className="text-[10px] tracking-[0.2em] text-gold/80 uppercase font-bold mb-2 ml-1">
                       Optional Message
@@ -157,13 +190,17 @@ export function RsvpForm() {
                     />
                   </div>
 
-                  {/* Submit Button */}
                   <div className="mt-4 mb-2 flex justify-center">
                     <button
                       type="submit"
-                      className="inline-flex items-center justify-center rounded-full bg-gold px-8 py-3.5 text-[11px] font-bold tracking-[0.2em] text-maroon uppercase shadow-lg shadow-gold/10 hover:bg-gold-soft hover:-translate-y-0.5 transition-all duration-300 w-full sm:w-auto"
+                      disabled={isSubmitting}
+                      className="inline-flex items-center justify-center rounded-full bg-gold px-8 py-3.5 text-[11px] font-bold tracking-[0.2em] text-maroon uppercase shadow-lg shadow-gold/10 hover:bg-gold-soft hover:-translate-y-0.5 transition-all duration-300 w-full sm:w-auto disabled:opacity-70 disabled:hover:translate-y-0"
                     >
-                      {selection === "yes" ? "Confirm RSVP" : "Send"}
+                      {isSubmitting ? (
+                        <Loader2 size={16} className="animate-spin text-maroon" />
+                      ) : (
+                        selection === "yes" ? "Confirm RSVP" : "Send"
+                      )}
                     </button>
                   </div>
                 </motion.form>
