@@ -1234,7 +1234,7 @@ function RsvpSection() {
 
   return (
     <>
-      <Section id="rsvp" className="flex flex-col items-center justify-center relative z-20 pt-4 pb-12">
+      <Section id="rsvp" className="flex flex-col items-center justify-center relative z-20 pt-4 pb-4">
         <RsvpForm />
       
       <div className="mt-12 flex flex-col items-center gap-4">
@@ -1252,7 +1252,7 @@ function RsvpSection() {
     </Section>
 
     {/* ═══════ FAMILY ACKNOWLEDGEMENT SECTION ═══════ */}
-    <section className="w-full relative flex flex-col items-center pt-24 pb-20 px-4 overflow-hidden z-20">
+    <section className="w-full relative flex flex-col items-center pt-8 pb-20 px-4 overflow-hidden z-20">
       <motion.div 
         initial="hidden"
         whileInView="visible"
