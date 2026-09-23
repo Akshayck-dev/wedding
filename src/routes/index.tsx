@@ -1351,7 +1351,7 @@ function RsvpSection() {
                    <div className="w-[52px] h-[52px] rounded-full overflow-hidden mb-3 border border-[#E7C66A]/60 p-0.5 opacity-90 group-hover:opacity-100 transition-opacity">
                       <img src={member.img} alt={member.name} className="w-full h-full object-cover rounded-full" />
                    </div>
-                   <span className="font-serif text-[17px] sm:text-[20px] text-[#FFF8E7] tracking-wide font-medium">{member.name}</span>
+                   <span className="font-serif text-[17px] sm:text-[20px] text-[#FFF8E7] tracking-wide font-medium text-center px-1 leading-tight">{member.name}</span>
                 </motion.div>
               ))}
            </div>
@@ -1381,7 +1381,7 @@ function RsvpSection() {
                         <path d="M12 17c1-1 2-1 2-2 0-1-1-1-1-1" />
                      </svg>
                    )}
-                   <span className="font-serif text-[15px] sm:text-[18px] text-[#FFF8E7] tracking-wide font-medium">{member.name}</span>
+                   <span className="font-serif text-[15px] sm:text-[18px] text-[#FFF8E7] tracking-wide font-medium text-center px-1 leading-tight">{member.name}</span>
                 </motion.div>
               ))}
            </div>
