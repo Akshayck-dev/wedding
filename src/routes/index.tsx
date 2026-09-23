@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
-import { MapPin, Navigation, Calendar, Clock, ZoomIn, Download, X } from "lucide-react";
+import { MapPin, Navigation, Calendar, Clock, ZoomIn, Download, X, Share2 } from "lucide-react";
 
 import heroBg from "@/assets/pre_wedding_bg.webp";
 import heroBgDesktop from "@/assets/pre_wedding_bg.webp";
@@ -1156,9 +1156,30 @@ function GallerySection() {
 
 /* ---------------- RSVP ---------------- */
 function RsvpSection() {
+  const handleWhatsAppShare = () => {
+    const text = encodeURIComponent(
+      "We are delighted to invite you to the wedding of Shreyasi & Purushottam.\n\nPlease view our wedding invitation and RSVP here:\n" +
+      window.location.href
+    );
+    window.open(`https://api.whatsapp.com/send?text=${text}`, "_blank");
+  };
+
   return (
-    <Section id="rsvp" className="flex flex-col items-center justify-center relative z-20 pt-4 pb-8">
+    <Section id="rsvp" className="flex flex-col items-center justify-center relative z-20 pt-4 pb-12">
       <RsvpForm />
+      
+      <div className="mt-12 flex flex-col items-center gap-4">
+        <p className="text-[10px] sm:text-[11px] text-ivory/60 font-serif tracking-[0.1em] italic text-center max-w-xs">
+          Your presence is our biggest present. No boxed gifts, please.
+        </p>
+        <button
+          onClick={handleWhatsAppShare}
+          className="inline-flex items-center gap-2 rounded-full border border-[#25D366]/40 bg-[#25D366]/10 px-6 py-2.5 text-[10px] font-bold tracking-[0.15em] text-ivory uppercase hover:bg-[#25D366] hover:text-white transition-all duration-300 shadow-md backdrop-blur-sm cursor-pointer mt-2"
+        >
+          <Share2 size={12} className="opacity-80" />
+          Share via WhatsApp
+        </button>
+      </div>
     </Section>
   );
 }
