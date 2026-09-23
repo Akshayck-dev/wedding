@@ -475,32 +475,74 @@ function RevealSection() {
         <AnimatePresence>
           {isDateRevealed && (
             <motion.div
-              initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
-              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              transition={{ duration: 1.5, delay: 0.5, ease: "easeOut" }}
-              className="relative w-full max-w-[320px] mt-6 flex flex-col items-center bg-[#FAF6ED]/85 backdrop-blur-md px-6 pt-14 pb-8 rounded-t-[160px] rounded-b-xl border border-[#B8862D]/30 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)]"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
+              className="relative w-full max-w-[460px] mt-10 mb-2 flex flex-col items-center px-4"
             >
-              {/* Inner thin border */}
-              <div className="absolute inset-2 border border-[#B8862D]/20 rounded-t-[150px] rounded-b-lg pointer-events-none"></div>
-              
-              {/* Floral Peak */}
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#B8862D" strokeWidth="1" opacity="0.6" className="absolute top-4 left-1/2 -translate-x-1/2">
-                <path d="M12 22C12 22 20 15.3 20 10.5C20 6.4 16.6 3 12.5 3C10.4 3 8.5 4 7.2 5.5C5.9 4 4 3 1.9 3C-2.2 3 -5.6 6.4 -5.6 10.5C-5.6 15.3 2.4 22 2.4 22H12Z" transform="translate(4.8,0) scale(0.6)"/>
-              </svg>
+              {/* Header */}
+              <div className="flex flex-col items-center mb-8">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E7C66A" strokeWidth="1.2" className="mb-4 opacity-90">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                  <path d="M12 4v-2" />
+                  <path d="M12 2c2-1 3 0 3 0" />
+                  <path d="M12 2c-2-1-3 0-3 0" />
+                </svg>
+                <h4 className="text-[14px] sm:text-[15px] font-serif tracking-[0.35em] text-[#FFF8E7] uppercase mb-5 text-center font-medium drop-shadow-sm opacity-95">
+                  The Countdown Begins
+                </h4>
+                
+                {/* Thin gold divider with diamond */}
+                <div className="flex items-center gap-3 w-[150px] opacity-70">
+                  <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-[#E7C66A]"></div>
+                  <div className="flex items-center gap-[4px]">
+                     <div className="w-[5px] h-[5px] bg-[#E7C66A] rotate-45"></div>
+                     <div className="w-[5px] h-[5px] border border-[#E7C66A] rotate-45"></div>
+                  </div>
+                  <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-[#E7C66A]"></div>
+                </div>
+              </div>
 
-              <h4 className="text-[12px] font-serif tracking-[0.3em] text-[#8B1A1A] uppercase mb-6 mt-2 text-center drop-shadow-sm font-bold">The Countdown Begins</h4>
+              {/* Countdown Component */}
               <Countdown />
-              <div className="mt-6 flex items-center justify-center gap-2">
-                <svg className="w-3 h-3 text-[#A67C43]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9v-2h2v2zm0-4H9V7h2v5zm4 4h-2v-2h2v2zm0-4h-2V7h2v5z" opacity="0.8"/></svg>
-                <span className="font-script text-2xl sm:text-3xl text-[#5C4524]">Until our forever begins</span>
-                <svg className="w-3 h-3 text-[#A67C43]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9v-2h2v2zm0-4H9V7h2v5zm4 4h-2v-2h2v2zm0-4h-2V7h2v5z" opacity="0.8"/></svg>
+              
+              {/* Bottom Message */}
+              <div className="mt-12 flex items-center justify-center gap-2 sm:gap-4 w-full opacity-90">
+                {/* Left Branch */}
+                <div className="flex-1 flex items-center justify-end opacity-70">
+                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E7C66A" strokeWidth="1">
+                     <path d="M3 21S7 13 14 10" />
+                     <path d="M14 10c-2 2-2 5 0 7 2-2 5-2 7 0-3-4-7-7-7-7z" />
+                     <path d="M10 14c-1.5 1.5-1.5 3.5 0 5 1.5-1.5 3.5-1.5 5 0-2-3-5-5-5-5z" />
+                  </svg>
+                  <div className="h-[1px] w-8 sm:w-16 bg-[#E7C66A] ml-2"></div>
+                </div>
+
+                <span className="font-script text-[32px] sm:text-[40px] text-[#FFF8E7] px-2 shrink-0 drop-shadow-sm leading-none pt-2">Until our forever begins</span>
+                
+                {/* Right Branch */}
+                <div className="flex-1 flex items-center justify-start opacity-70">
+                  <div className="h-[1px] w-8 sm:w-16 bg-[#E7C66A] mr-2"></div>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E7C66A" strokeWidth="1" transform="scale(-1, 1)">
+                     <path d="M3 21S7 13 14 10" />
+                     <path d="M14 10c-2 2-2 5 0 7 2-2 5-2 7 0-3-4-7-7-7-7z" />
+                     <path d="M10 14c-1.5 1.5-1.5 3.5 0 5 1.5-1.5 3.5-1.5 5 0-2-3-5-5-5-5z" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Bottom Decorative Divider */}
+              <div className="mt-4 flex items-center gap-3 w-[100px] opacity-60">
+                 <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-[#E7C66A]"></div>
+                 <div className="w-[5px] h-[5px] border border-[#E7C66A] rotate-45"></div>
+                 <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-[#E7C66A]"></div>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
 
         {/* Gold ornamental divider */}
-        <div className="w-full flex flex-col items-center mt-14 mb-2">
+        <div className="w-full flex flex-col items-center mt-6 mb-2">
           <div className="flex items-center gap-4 w-full max-w-[280px]">
             <div className="flex-1 h-[1px] bg-gradient-to-r from-transparent to-[#B8862D]/50"></div>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-[#B8862D]/60 shrink-0">
