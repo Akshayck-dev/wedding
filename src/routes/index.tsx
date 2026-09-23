@@ -1308,7 +1308,7 @@ function RsvpSection() {
           transition={{ duration: 0.8 }}
           className="font-serif text-[24px] sm:text-[28px] text-[#FFF8E7] mb-1 text-center z-10"
         >
-          Bride's <span className="font-light opacity-60 px-1">/</span> Shreyasi's
+          Shreyasi's
         </motion.h3>
         
         <motion.h4 
