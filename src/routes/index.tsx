@@ -285,9 +285,9 @@ function Hero({ onOpen }: { onOpen: () => void }) {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 2.2, duration: 1, ease: "easeOut" }}
-          className="flex flex-col items-center mb-6 mt-4"
+          className="flex flex-col items-center mb-3 mt-2"
         >
-          <img src={ganeshaImg} alt="Lord Ganesha" className="w-24 h-24 sm:w-28 sm:h-28 object-contain mb-3 drop-shadow-[0_2px_4px_rgba(255,255,255,0.5)]" />
+          <img src={ganeshaImg} alt="Lord Ganesha" className="w-24 h-24 sm:w-28 sm:h-28 object-contain mb-1 drop-shadow-[0_2px_4px_rgba(255,255,255,0.5)]" />
           <div className="flex items-center gap-2">
             <span className="text-[12px] text-[#D4AF37] opacity-60">||</span>
             <span className="text-[18px] sm:text-[22px] text-[#7A5A29] font-serif font-light tracking-wide drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">Shree Ganeshaya Namah</span>
@@ -300,7 +300,7 @@ function Hero({ onOpen }: { onOpen: () => void }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2.4, duration: 1 }}
-          className="mb-4 text-[#A67C43]"
+          className="mb-2 text-[#A67C43]"
         >
           <svg width="40" height="10" viewBox="0 0 40 10" fill="currentColor"><path d="M20 5 L15 0 L15 4 L0 4 L0 6 L15 6 L15 10 Z M25 0 L20 5 L25 10 L25 6 L40 6 L40 4 L25 4 Z" opacity="0.6"/></svg>
         </motion.div>
@@ -310,13 +310,13 @@ function Hero({ onOpen }: { onOpen: () => void }) {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2.6, duration: 1, ease: "easeOut" }}
-          className="text-center mb-8 max-w-[340px] px-6 sm:px-8"
+          className="text-center mb-3 max-w-[340px] px-6 sm:px-8"
         >
           <p className="text-[11px] sm:text-[12px] leading-[2] text-[#2C1810] font-serif tracking-[0.2em] uppercase">
             <span className="font-bold text-[#7A5A29] tracking-[0.25em]">WITH HEARTS FULL OF JOY</span><br/>
-            <span className="block my-3"><span className="text-[#1A0F0A] font-bold">DR. AJAYA NATH</span><br/><span className="text-[9px] text-[#D4AF37] font-semibold my-1 block">AND</span><span className="text-[#1A0F0A] font-bold">LATE DR. ASHOK KUMAR</span></span>
+            <span className="block my-1"><span className="text-[#1A0F0A] font-bold">DR. AJAYA NATH</span><br/><span className="text-[9px] text-[#D4AF37] font-semibold my-0 block">AND</span><span className="text-[#1A0F0A] font-bold">LATE DR. ASHOK KUMAR</span></span>
             <span className="text-[#2C1810] lowercase italic font-serif text-[13px] tracking-widest">joyfully invite you to celebrate</span><br/>
-            <span className="block mt-3 font-bold text-[#7A5A29] tracking-[0.25em]">THE WEDDING<br/>FESTIVITIES OF THEIR DAUGHTER</span>
+            <span className="block mt-1 font-bold text-[#7A5A29] tracking-[0.25em]">THE WEDDING<br/>FESTIVITIES OF THEIR DAUGHTER</span>
           </p>
         </motion.div>
 
@@ -326,7 +326,7 @@ function Hero({ onOpen }: { onOpen: () => void }) {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 3.0, duration: 1, ease: "easeOut" }}
-          className="flex flex-col items-center text-center w-full mb-1"
+          className="flex flex-col items-center text-center w-full mb-0"
         >
           <h1 className="font-script text-[64px] sm:text-[76px] text-[#5A3A3A] leading-[0.8] drop-shadow-[0_2px_4px_rgba(255,255,255,0.7)]">Shreyasi</h1>
         </motion.div>
@@ -336,7 +336,7 @@ function Hero({ onOpen }: { onOpen: () => void }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 3.1, duration: 1 }}
-          className="my-3 flex items-center gap-3"
+          className="my-0 flex items-center gap-3"
         >
           <span className="text-[#D4AF37] text-lg opacity-80">✧</span>
           <span className="font-script text-[36px] sm:text-[44px] text-[#D4AF37] drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)]">&amp;</span>
@@ -348,7 +348,7 @@ function Hero({ onOpen }: { onOpen: () => void }) {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 3.2, duration: 1, ease: "easeOut" }}
-          className="flex flex-col items-center text-center w-full mb-8"
+          className="flex flex-col items-center text-center w-full mb-3"
         >
           <h1 className="font-script text-[54px] sm:text-[64px] text-[#5A3A3A] leading-[0.8] drop-shadow-[0_2px_4px_rgba(255,255,255,0.7)]">Purushottam</h1>
         </motion.div>
@@ -358,9 +358,9 @@ function Hero({ onOpen }: { onOpen: () => void }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 3.3, duration: 1 }}
-          className="flex flex-col items-center text-center w-full mb-8"
+          className="flex flex-col items-center text-center w-full mb-2"
         >
-          <p className="text-[9px] text-[#D4AF37] font-serif font-bold mb-3 tracking-[0.3em] uppercase">SON OF</p>
+          <p className="text-[9px] text-[#D4AF37] font-serif font-bold mb-1 tracking-[0.3em] uppercase">SON OF</p>
           <p className="text-[11px] sm:text-[12px] leading-[2.2] text-[#5A3A3A] font-serif font-semibold tracking-[0.15em] uppercase">
             MRS. SARITA SINHA<br/>
             <span className="text-[9px] text-[#D4AF37]">AND</span><br/>
@@ -369,12 +369,11 @@ function Hero({ onOpen }: { onOpen: () => void }) {
         </motion.div>
         
         {/* Small diamond divider */}
-        {/* Small diamond divider */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 3.4, duration: 1 }}
-          className="mb-8 flex items-center justify-center gap-1 text-[#A67C43] opacity-70"
+          className="mb-4 flex items-center justify-center gap-1 text-[#A67C43] opacity-70"
         >
           <div className="w-6 h-[1px] bg-current"></div>
           <svg width="8" height="8" viewBox="0 0 10 10" fill="currentColor"><path d="M5 0 L10 5 L5 10 L0 5 Z"/></svg>
