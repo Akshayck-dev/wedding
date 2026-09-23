@@ -34,8 +34,6 @@ export function FloatingPetals({ count = 14 }: { count?: number }) {
             animationDuration: `${p.duration}s`,
             animationDelay: `-${p.delay}s`,
             opacity: p.opacity,
-            transform: `rotate(${p.rotationStart}deg)`,
-            filter: `hue-rotate(${p.hueRotate}deg)`,
             ["--drift" as never]: p.drift,
           }}
         />

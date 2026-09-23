@@ -134,7 +134,7 @@ function Index() {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -60, opacity: 0 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="fixed top-0 left-0 right-0 z-[150] flex h-14 items-center justify-between border-b border-gold/30 bg-maroon/95 px-6 backdrop-blur-md safe-top shadow-soft"
+            className="fixed top-0 left-0 right-0 z-[150] flex h-14 items-center justify-between border-b border-gold/30 bg-maroon px-6 safe-top shadow-soft"
           >
             {/* Calligraphy Initials logo */}
             <div 

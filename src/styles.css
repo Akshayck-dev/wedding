@@ -176,6 +176,7 @@
 }
 @utility animate-fall {
   animation: fall linear infinite;
+  will-change: transform, opacity;
 }
 @utility animate-ken-burns {
   animation: ken-burns 22s ease-in-out infinite;
