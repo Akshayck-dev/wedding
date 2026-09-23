@@ -1221,6 +1221,31 @@ function RsvpSection() {
           Share via WhatsApp
         </button>
       </div>
+
+      {/* Family Acknowledgement */}
+      <div className="mt-20 mb-8 flex flex-col items-center gap-2 w-full">
+        <h5 className="font-serif text-[10px] sm:text-[12px] text-[#E7C66A] tracking-[0.3em] uppercase mb-1 opacity-90">
+          With love from
+        </h5>
+        <h4 className="font-script text-[32px] sm:text-[40px] text-[#FFF8E7] drop-shadow-sm mb-6">
+          Bride's / Shreyasi's Family
+        </h4>
+        
+        {/* Subtle Divider */}
+        <div className="flex items-center gap-3 w-[120px] opacity-60 mb-6">
+          <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-[#E7C66A]"></div>
+          <div className="w-[4px] h-[4px] border border-[#E7C66A] rotate-45"></div>
+          <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-[#E7C66A]"></div>
+        </div>
+
+        <div className="flex flex-col items-center gap-3 font-serif text-[15px] sm:text-[17px] text-[#FFF8E7]/90 tracking-[0.2em] uppercase text-center font-medium">
+          <p>Ashok</p>
+          <p>Ajaya</p>
+          <p>Silvi</p>
+          <p>Rishi</p>
+          <p>Atharva</p>
+        </div>
+      </div>
     </Section>
   );
 }
