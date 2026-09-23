@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState, useRef } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { MapPin, Navigation, Calendar, Clock, ZoomIn, Download, X, Share2 } from "lucide-react";
 
@@ -154,7 +155,7 @@ function Index() {
             {/* Decorative luxury menu lines */}
             <div 
               onClick={() => setMenuOpen(!menuOpen)}
-              className="flex flex-col gap-1 cursor-pointer p-2 relative z-[160]"
+              className="hidden flex-col gap-1 cursor-pointer p-2 relative z-[160]"
             >
               {menuOpen ? (
                 <div className="relative h-5 w-5 flex items-center justify-center">
@@ -1209,11 +1210,17 @@ function RsvpSection() {
   useEffect(() => {
     if (selectedImage) {
       document.body.style.overflow = 'hidden';
+      // @ts-ignore
+      window.lenis?.stop();
     } else {
       document.body.style.overflow = 'unset';
+      // @ts-ignore
+      window.lenis?.start();
     }
     return () => {
       document.body.style.overflow = 'unset';
+      // @ts-ignore
+      window.lenis?.start();
     };
   }, [selectedImage]);
 
@@ -1342,8 +1349,8 @@ function RsvpSection() {
            {/* Row 1 */}
            <div className="flex justify-center gap-4 sm:gap-5 w-full">
               {[
-                { name: 'Ashok', img: rishiOldImg }, 
-                { name: 'Ajaya', img: ajayaImg }
+                { name: 'Dr. Ashok Kumar', img: rishiOldImg }, 
+                { name: 'Dr. Ajaya Nath', img: ajayaImg }
               ].map((member, i) => (
                 <motion.div 
                   key={member.name} 
@@ -1433,42 +1440,45 @@ function RsvpSection() {
     </section>
 
     {/* Image Modal */}
-    <AnimatePresence>
-      {selectedImage && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={() => setSelectedImage(null)}
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 backdrop-blur-xl p-4 sm:p-8 cursor-zoom-out"
-        >
-          <button 
-            onClick={(e) => {
-              e.stopPropagation();
-              setSelectedImage(null);
-            }}
-            className="fixed top-6 right-6 sm:top-8 sm:right-8 z-[10000] p-3 bg-white/10 rounded-full text-white hover:text-white hover:bg-white/20 transition-all cursor-pointer backdrop-blur-md shadow-2xl border border-white/20"
-          >
-            <X size={24} />
-          </button>
+    {typeof document !== 'undefined' && createPortal(
+      <AnimatePresence>
+        {selectedImage && (
           <motion.div
-            initial={{ scale: 0.9, opacity: 0, y: 20 }}
-            animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0.9, opacity: 0, y: 20 }}
-            transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            onClick={(e) => e.stopPropagation()}
-            className="relative max-w-[95vw] max-h-[85vh] flex flex-col items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedImage(null)}
+            className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/40 backdrop-blur-md p-4 sm:p-8 cursor-zoom-out"
           >
-            <img 
-              src={selectedImage} 
-              alt="Family Member" 
-              className="w-auto h-auto max-w-full rounded-[24px] shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/20 object-contain" 
-              style={{ maxHeight: '85vh' }}
-            />
+            <button 
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedImage(null);
+              }}
+              className="fixed top-6 right-6 sm:top-8 sm:right-8 z-[10000] p-3 bg-white/10 rounded-full text-white hover:text-white hover:bg-white/20 transition-all cursor-pointer backdrop-blur-md shadow-2xl border border-white/20"
+            >
+              <X size={24} />
+            </button>
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative max-w-[95vw] max-h-[85vh] flex flex-col items-center justify-center"
+            >
+              <img 
+                src={selectedImage} 
+                alt="Family Member" 
+                className="w-auto h-auto max-w-full rounded-[24px] shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/20 object-contain" 
+                style={{ maxHeight: '85vh' }}
+              />
+            </motion.div>
           </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+        )}
+      </AnimatePresence>,
+      document.body
+    )}
     </>
   );
 }

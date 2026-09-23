@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
@@ -15,6 +16,24 @@ const POSTERS = [
 export function EventPosters() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedPoster, setSelectedPoster] = useState<string | null>(null);
+
+  // Disable body scroll when modal is open
+  useEffect(() => {
+    if (selectedPoster) {
+      document.body.style.overflow = 'hidden';
+      // @ts-ignore
+      window.lenis?.stop();
+    } else {
+      document.body.style.overflow = 'unset';
+      // @ts-ignore
+      window.lenis?.start();
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+      // @ts-ignore
+      window.lenis?.start();
+    };
+  }, [selectedPoster]);
 
   const next = () => setCurrentIndex((prev) => (prev + 1) % POSTERS.length);
   const prev = () => setCurrentIndex((prev) => (prev - 1 + POSTERS.length) % POSTERS.length);
@@ -119,32 +138,35 @@ export function EventPosters() {
         </p>
       </div>
 
-      {/* Full screen modal */}
-      <AnimatePresence>
-        {selectedPoster && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[200] bg-black/90 backdrop-blur-md flex items-center justify-center p-4 cursor-zoom-out"
-            onClick={() => setSelectedPoster(null)}
-          >
-            <button className="absolute top-6 right-6 text-white/80 hover:text-white bg-black/50 p-2 rounded-full z-[210] transition-colors">
-              <X size={32} />
-            </button>
-            <motion.img
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              src={selectedPoster}
-              alt="Full screen poster"
-              className="w-full max-w-[90vw] sm:max-w-[400px] max-h-[90vh] object-contain rounded-lg shadow-[0_0_50px_rgba(184,134,45,0.2)]"
-              onClick={(e) => e.stopPropagation()}
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Full screen modal via Portal */}
+      {typeof document !== 'undefined' && createPortal(
+        <AnimatePresence>
+          {selectedPoster && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[9999] bg-black/80 backdrop-blur-md flex items-center justify-center p-4 cursor-zoom-out"
+              onClick={() => setSelectedPoster(null)}
+            >
+              <button className="fixed top-6 right-6 z-[10000] p-3 bg-white/10 rounded-full text-white hover:text-white hover:bg-white/20 transition-all cursor-pointer backdrop-blur-md shadow-2xl border border-white/20">
+                <X size={24} />
+              </button>
+              <motion.img
+                initial={{ scale: 0.95, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.95, opacity: 0 }}
+                transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                src={selectedPoster}
+                alt="Full screen poster"
+                className="w-full max-w-[90vw] sm:max-w-[400px] max-h-[90vh] object-contain rounded-lg shadow-[0_0_50px_rgba(184,134,45,0.2)]"
+                onClick={(e) => e.stopPropagation()}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </div>
   );
 }

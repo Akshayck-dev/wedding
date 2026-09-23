@@ -118,6 +118,9 @@ function RootShell({ children }: { children: ReactNode }) {
       autoRaf: true,
     });
     
+    // @ts-ignore
+    window.lenis = lenis;
+    
     function raf(time: number) {
       lenis.raf(time);
       requestAnimationFrame(raf);
@@ -125,6 +128,8 @@ function RootShell({ children }: { children: ReactNode }) {
     requestAnimationFrame(raf);
 
     return () => {
+      // @ts-ignore
+      window.lenis = undefined;
       lenis.destroy();
     };
   }, []);
