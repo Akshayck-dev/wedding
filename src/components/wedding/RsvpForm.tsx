@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Heart, Sparkles, Minus, Plus, Loader2 } from "lucide-react";
 import { Reveal } from "./Reveal";
 
-// TODO: Replace this URL with your Google Apps Script Web App URL
-const GOOGLE_SCRIPT_URL = "YOUR_GOOGLE_SCRIPT_URL_HERE";
+// Google Apps Script Web App URL for submitting RSVP responses to Google Sheets
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwDQlQlnrGmOqnq1L6L2IjDGIM5afs_6pd3casKTbrEIY3uGlSysaoxFTys2xM99hW3Pw/exec";
 
 export function RsvpForm() {
   const [selection, setSelection] = useState<"yes" | "no" | null>(null);
