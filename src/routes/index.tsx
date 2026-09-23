@@ -1237,19 +1237,7 @@ function RsvpSection() {
       <Section id="rsvp" className="flex flex-col items-center justify-center relative z-20 pt-4 pb-4">
         <RsvpForm />
       
-      <div className="mt-12 flex flex-col items-center gap-4">
-        <p className="text-[10px] sm:text-[11px] text-ivory/60 font-serif tracking-[0.1em] italic text-center max-w-xs">
-          As we step into this new chapter, we'd love for you to be part of the very first page.
-        </p>
-        <button
-          onClick={handleWhatsAppShare}
-          className="inline-flex items-center gap-2 rounded-full border border-[#25D366]/40 bg-[#25D366]/10 px-6 py-2.5 text-[10px] font-bold tracking-[0.15em] text-ivory uppercase hover:bg-[#25D366] hover:text-white transition-all duration-300 shadow-md backdrop-blur-sm cursor-pointer mt-2"
-        >
-          <Share2 size={12} className="opacity-80" />
-          Share via WhatsApp
-        </button>
-      </div>
-    </Section>
+      </Section>
 
     {/* ═══════ FAMILY ACKNOWLEDGEMENT SECTION ═══════ */}
     <section className="w-full relative flex flex-col items-center pt-8 pb-20 px-4 overflow-hidden z-20">
@@ -1437,6 +1425,22 @@ function RsvpSection() {
           <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-[#E7C66A]"></div>
         </motion.div>
       </motion.div>
+    </section>
+
+    {/* ═══════ SHARE SECTION ═══════ */}
+    <section className="w-full relative flex flex-col items-center pt-8 pb-16 px-4 z-20">
+      <div className="flex flex-col items-center gap-4">
+        <p className="text-[10px] sm:text-[11px] text-ivory/60 font-serif tracking-[0.1em] italic text-center max-w-xs">
+          As we step into this new chapter, we'd love for you to be part of the very first page.
+        </p>
+        <button
+          onClick={handleWhatsAppShare}
+          className="inline-flex items-center gap-2 rounded-full border border-[#25D366]/40 bg-[#25D366]/10 px-6 py-2.5 text-[10px] font-bold tracking-[0.15em] text-ivory uppercase hover:bg-[#25D366] hover:text-white transition-all duration-300 shadow-md backdrop-blur-sm cursor-pointer mt-2"
+        >
+          <Share2 size={12} className="opacity-80" />
+          Share via WhatsApp
+        </button>
+      </div>
     </section>
 
     {/* Image Modal */}
