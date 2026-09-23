@@ -1429,25 +1429,28 @@ function RsvpSection() {
           onClick={() => setSelectedImage(null)}
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-md p-4 cursor-zoom-out"
         >
+          <button 
+            onClick={(e) => {
+              e.stopPropagation();
+              setSelectedImage(null);
+            }}
+            className="absolute top-4 right-4 sm:top-6 sm:right-6 z-[110] p-2 bg-black/40 rounded-full text-white/80 hover:text-white hover:bg-black/60 transition-colors cursor-pointer backdrop-blur-md shadow-lg"
+          >
+            <X size={24} />
+          </button>
           <motion.div
             initial={{ scale: 0.9, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
             onClick={(e) => e.stopPropagation()}
-            className="relative max-w-[90vw] max-h-[80vh] flex flex-col items-center"
+            className="relative max-w-[90vw] max-h-[85vh] flex flex-col items-center"
           >
-            <button 
-              onClick={() => setSelectedImage(null)}
-              className="absolute -top-14 right-0 p-2 text-white/60 hover:text-white transition-colors cursor-pointer"
-            >
-              <X size={28} />
-            </button>
             <img 
               src={selectedImage} 
               alt="Family Member" 
               className="w-auto h-auto max-w-full rounded-[24px] shadow-2xl border border-white/20 object-contain" 
-              style={{ maxHeight: '75vh' }}
+              style={{ maxHeight: '85vh' }}
             />
           </motion.div>
         </motion.div>
