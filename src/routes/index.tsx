@@ -23,6 +23,7 @@ import { RsvpForm } from "@/components/wedding/RsvpForm";
 import { MusicToggle } from "@/components/wedding/MusicToggle";
 import { EnvelopeReveal } from "@/components/wedding/EnvelopeReveal";
 import { EnvelopeDateReveal } from "@/components/wedding/EnvelopeDateReveal";
+import { TapRevealCard } from "@/components/wedding/TapRevealCard";
 import { OurMomentsCarousel } from "@/components/wedding/OurMomentsCarousel";
 import Confetti from "react-confetti";
 import { useWindowSize } from "react-use";
@@ -459,7 +460,7 @@ function RevealSection() {
       )}
 
       <Reveal className="w-full flex flex-col items-center z-20">
-        <EnvelopeDateReveal 
+        <TapRevealCard 
           onOpenStart={() => {
             setIsDateRevealed(true);
             setShowConfetti(true);
@@ -467,9 +468,6 @@ function RevealSection() {
           }}
           onReveal={() => {
             // Additional actions on full reveal if needed
-          }}
-          onClose={() => {
-            setIsDateRevealed(false);
           }}
         />
 
