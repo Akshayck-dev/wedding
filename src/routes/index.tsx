@@ -367,10 +367,10 @@ function Hero({ onOpen }: { onOpen: () => void }) {
           className="flex flex-col items-center text-center w-full mb-2"
         >
           <p className="text-[9px] text-[#D4AF37] font-serif font-bold mb-1 tracking-[0.3em] uppercase">SON OF</p>
-          <p className="text-[11px] sm:text-[12px] leading-[2.2] text-[#5A3A3A] font-serif font-semibold tracking-[0.15em] uppercase">
-            MRS. SARITA SINHA<br/>
-            <span className="text-[9px] text-[#D4AF37]">AND</span><br/>
-            MR. SHASHANK SINHA
+          <p className="text-[11px] sm:text-[12px] leading-[2] text-[#2C1810] font-serif tracking-[0.2em] uppercase">
+            <span className="text-[#1A0F0A] font-bold">MRS. SARITA SINHA</span><br/>
+            <span className="text-[9px] text-[#D4AF37] font-semibold my-0 block">AND</span>
+            <span className="text-[#1A0F0A] font-bold">MR. SHASHANK SINHA</span>
           </p>
         </motion.div>
         
