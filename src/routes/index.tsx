@@ -264,6 +264,7 @@ function Hero({ onOpen }: { onOpen: () => void }) {
           <source media="(min-width: 640px)" srcSet={heroBgDesktop} />
           <img src={heroBg} alt="" className="h-full w-full object-cover animate-ken-burns" />
         </picture>
+        <div className="absolute inset-0 bg-gradient-to-b from-ivory/10 via-ivory/40 to-ivory/70 pointer-events-none" />
       </motion.div>
       
 
@@ -284,13 +285,13 @@ function Hero({ onOpen }: { onOpen: () => void }) {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 2.2, duration: 1, ease: "easeOut" }}
-          className="flex flex-col items-center mb-3"
+          className="flex flex-col items-center mb-6 mt-4"
         >
-          <img src={ganeshaImg} alt="Lord Ganesha" className="w-32 h-32 sm:w-40 sm:h-40 object-contain mb-2 drop-shadow-[0_2px_4px_rgba(255,255,255,0.5)]" />
+          <img src={ganeshaImg} alt="Lord Ganesha" className="w-24 h-24 sm:w-28 sm:h-28 object-contain mb-3 drop-shadow-[0_2px_4px_rgba(255,255,255,0.5)]" />
           <div className="flex items-center gap-2">
-            <span className="text-[14px] text-[#A67C43] opacity-60">||</span>
-            <span className="text-[20px] sm:text-[24px] text-[#7A5A29] italic font-serif tracking-[0.05em] drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">Shree Ganeshaya Namah</span>
-            <span className="text-[10px] text-[#A67C43] opacity-60">||</span>
+            <span className="text-[12px] text-[#D4AF37] opacity-60">||</span>
+            <span className="text-[18px] sm:text-[22px] text-[#7A5A29] font-serif font-light tracking-wide drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">Shree Ganeshaya Namah</span>
+            <span className="text-[10px] text-[#D4AF37] opacity-60">||</span>
           </div>
         </motion.div>
 
@@ -309,13 +310,13 @@ function Hero({ onOpen }: { onOpen: () => void }) {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2.6, duration: 1, ease: "easeOut" }}
-          className="text-center mb-4 max-w-[340px] px-6 sm:px-8"
+          className="text-center mb-8 max-w-[340px] px-6 sm:px-8"
         >
-          <p className="text-[12px] sm:text-[13px] leading-[2.2] text-[#2C1810] font-serif font-bold drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)] tracking-[0.15em] uppercase">
-            WITH HEARTS FULL OF JOY,<br/>
-            <span className="text-[#1A0F0A]">DR. AJAYA NATH AND LATE DR. ASHOK KUMAR</span><br/>
-            JOYFULLY INVITE YOU TO CELEBRATE THE WEDDING<br/>
-            FESTIVITIES OF THEIR DAUGHTER
+          <p className="text-[11px] sm:text-[12px] leading-[2] text-[#2C1810] font-serif tracking-[0.2em] uppercase">
+            <span className="font-bold text-[#7A5A29] tracking-[0.25em]">WITH HEARTS FULL OF JOY</span><br/>
+            <span className="block my-3"><span className="text-[#1A0F0A] font-bold">DR. AJAYA NATH</span><br/><span className="text-[9px] text-[#D4AF37] font-semibold my-1 block">AND</span><span className="text-[#1A0F0A] font-bold">LATE DR. ASHOK KUMAR</span></span>
+            <span className="text-[#2C1810] lowercase italic font-serif text-[13px] tracking-widest">joyfully invite you to celebrate</span><br/>
+            <span className="block mt-3 font-bold text-[#7A5A29] tracking-[0.25em]">THE WEDDING<br/>FESTIVITIES OF THEIR DAUGHTER</span>
           </p>
         </motion.div>
 
@@ -325,21 +326,21 @@ function Hero({ onOpen }: { onOpen: () => void }) {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 3.0, duration: 1, ease: "easeOut" }}
-          className="flex flex-col items-center text-center w-full mb-2"
+          className="flex flex-col items-center text-center w-full mb-1"
         >
-          <h1 className="font-script text-[64px] sm:text-[80px] text-[#5A3A3A] font-bold leading-[0.8] drop-shadow-[0_2px_2px_rgba(255,255,255,0.8)]">Shreyasi</h1>
+          <h1 className="font-script text-[64px] sm:text-[76px] text-[#5A3A3A] leading-[0.8] drop-shadow-[0_2px_4px_rgba(255,255,255,0.7)]">Shreyasi</h1>
         </motion.div>
 
-        {/* & with leaves */}
+        {/* & with subtle gold stars */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 3.1, duration: 1 }}
-          className="my-4 flex items-center gap-4"
+          className="my-3 flex items-center gap-3"
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7A5A29" strokeWidth="1" opacity="0.6" className="scale-x-[-1]"><path d="M5 12 C10 12 12 5 12 5 C12 5 14 12 19 12 C14 12 12 19 12 19 C12 19 10 12 5 12 Z"/></svg>
-          <span className="font-script text-[32px] sm:text-[40px] text-[#4A371C] drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">&amp;</span>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7A5A29" strokeWidth="1" opacity="0.6"><path d="M5 12 C10 12 12 5 12 5 C12 5 14 12 19 12 C14 12 12 19 12 19 C12 19 10 12 5 12 Z"/></svg>
+          <span className="text-[#D4AF37] text-lg opacity-80">✧</span>
+          <span className="font-script text-[36px] sm:text-[44px] text-[#D4AF37] drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)]">&amp;</span>
+          <span className="text-[#D4AF37] text-lg opacity-80">✧</span>
         </motion.div>
 
         {/* PURUSHOTTAM */}
@@ -347,21 +348,23 @@ function Hero({ onOpen }: { onOpen: () => void }) {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 3.2, duration: 1, ease: "easeOut" }}
-          className="flex flex-col items-center text-center w-full mb-6"
+          className="flex flex-col items-center text-center w-full mb-8"
         >
-          <h1 className="font-script text-[54px] sm:text-[72px] text-[#5A3A3A] font-bold leading-[0.8] drop-shadow-[0_2px_2px_rgba(255,255,255,0.8)]">Purushottam</h1>
+          <h1 className="font-script text-[54px] sm:text-[64px] text-[#5A3A3A] leading-[0.8] drop-shadow-[0_2px_4px_rgba(255,255,255,0.7)]">Purushottam</h1>
         </motion.div>
 
-        {/* Parents */}
+        {/* Groom Parents */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 3.3, duration: 1 }}
-          className="flex flex-col items-center text-center mb-4 bg-white/60 backdrop-blur-md rounded-xl py-3 px-6 border border-white/70 shadow-[0_4px_20px_rgba(0,0,0,0.1)]"
+          className="flex flex-col items-center text-center w-full mb-8"
         >
-          <p className="text-[12px] sm:text-[13px] text-[#2C1810] font-serif font-bold mb-1 drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)] tracking-[0.2em] uppercase">SON OF</p>
-          <p className="text-[12px] sm:text-[13px] leading-[1.8] text-[#1A0F0A] font-serif font-bold drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)] tracking-[0.15em] uppercase">
-            MRS. SARITA SINHA AND MR. SHASHANK SINHA
+          <p className="text-[9px] text-[#D4AF37] font-serif font-bold mb-3 tracking-[0.3em] uppercase">SON OF</p>
+          <p className="text-[11px] sm:text-[12px] leading-[2.2] text-[#5A3A3A] font-serif font-semibold tracking-[0.15em] uppercase">
+            MRS. SARITA SINHA<br/>
+            <span className="text-[9px] text-[#D4AF37]">AND</span><br/>
+            MR. SHASHANK SINHA
           </p>
         </motion.div>
         
