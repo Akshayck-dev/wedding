@@ -1211,7 +1211,7 @@ function RsvpSection() {
       
       <div className="mt-12 flex flex-col items-center gap-4">
         <p className="text-[10px] sm:text-[11px] text-ivory/60 font-serif tracking-[0.1em] italic text-center max-w-xs">
-          Your presence is our biggest present. No boxed gifts, please.
+          As we step into this new chapter, we'd love for you to be part of the very first page.
         </p>
         <button
           onClick={handleWhatsAppShare}
