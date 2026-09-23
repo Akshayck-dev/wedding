@@ -51,6 +51,22 @@ const GOOGLE_CALENDAR_URL =
 const APPLE_CALENDAR_URL =
   "data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ADTSTART:20261125T133000Z%0ADTEND:20261125T173000Z%0ASUMMARY:The Wedding - Shreyasi %26 Purushottam%0ADESCRIPTION:Join us for our wedding celebration.%0ALOCATION:The Ritz-Carlton, Bengaluru%0AEND:VEVENT%0AEND:VCALENDAR";
 
+const handleCalendarClick = (googleUrl: string, appleUrl: string) => {
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const isMac = /MacIntel/.test(navigator.platform);
+  
+  if (isIOS || isMac) {
+    const a = document.createElement('a');
+    a.href = appleUrl;
+    a.download = 'wedding_invitation.ics';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  } else {
+    window.open(googleUrl, '_blank');
+  }
+};
+
 
 
 export const Route = createFileRoute("/")({
@@ -419,8 +435,6 @@ function RevealSection() {
   const [showConfetti, setShowConfetti] = useState(false);
   const [showMapChoice, setShowMapChoice] = useState(false);
   const [showPreWeddingMapChoice, setShowPreWeddingMapChoice] = useState(false);
-  const [showCalendarChoice, setShowCalendarChoice] = useState(false);
-  const [showPreWeddingCalendarChoice, setShowPreWeddingCalendarChoice] = useState(false);
   const { width, height } = useWindowSize();
   const { scrollY } = useScroll();
   const foregroundOpacity = useTransform(scrollY, [0, 400], [1, 0]);
@@ -618,7 +632,7 @@ function RevealSection() {
                 Directions
               </button>
               <button
-                onClick={() => setShowPreWeddingCalendarChoice(true)}
+                onClick={() => handleCalendarClick(PRE_WEDDING_GOOGLE_CALENDAR_URL, PRE_WEDDING_APPLE_CALENDAR_URL)}
                 className="inline-flex items-center gap-2 rounded-full border border-gold bg-maroon/90 px-6 py-2.5 text-[10px] font-bold tracking-[0.2em] text-ivory uppercase hover:bg-maroon transition-all duration-300 shadow-md cursor-pointer"
               >
                 <Calendar size={12} className="text-gold" />
@@ -746,7 +760,7 @@ function RevealSection() {
                 Directions
               </button>
               <button
-                onClick={() => setShowCalendarChoice(true)}
+                onClick={() => handleCalendarClick(GOOGLE_CALENDAR_URL, APPLE_CALENDAR_URL)}
                 className="inline-flex items-center gap-2 rounded-full border border-gold bg-maroon/90 px-6 py-2.5 text-[10px] font-bold tracking-[0.2em] text-ivory uppercase hover:bg-maroon transition-all duration-300 shadow-md cursor-pointer"
               >
                 <Calendar size={12} className="text-gold" />
@@ -895,137 +909,7 @@ function RevealSection() {
             )}
           </AnimatePresence>
 
-          {/* Map Choice Bottom Sheet - Wedding */}
-          <AnimatePresence>
-            {showCalendarChoice && (
-              <motion.div
-                className="fixed inset-0 z-[200] flex items-end justify-center"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.25 }}
-              >
-                {/* Backdrop */}
-                <div
-                  className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-                  onClick={() => setShowCalendarChoice(false)}
-                />
-                {/* Sheet */}
-                <motion.div
-                  className="relative w-full max-w-sm mx-4 mb-6 rounded-2xl overflow-hidden border border-gold/30 shadow-[0_-10px_40px_rgba(0,0,0,0.4)]"
-                  style={{ backgroundColor: '#3A0A12' }}
-                  initial={{ y: 100, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: 100, opacity: 0 }}
-                  transition={{ type: 'spring', damping: 28, stiffness: 300 }}
-                >
-                  <div className="flex justify-center pt-3 pb-1">
-                    <div className="w-8 h-1 rounded-full bg-gold/30"></div>
-                  </div>
 
-                  <p className="text-center text-[10px] tracking-[0.25em] text-gold/80 uppercase font-semibold pt-3 pb-4">
-                    Choose Calendar
-                  </p>
-
-                  <div className="flex flex-col gap-2 px-5 pb-5">
-                    <a
-                      href={GOOGLE_CALENDAR_URL}
-                      target="_blank"
-                      rel="noreferrer"
-                      onClick={() => setShowCalendarChoice(false)}
-                      className="flex items-center justify-center gap-2.5 w-full py-3 rounded-xl border border-gold/30 bg-gold/10 text-gold text-[11px] font-bold tracking-[0.15em] uppercase hover:bg-gold hover:text-maroon transition-all duration-300"
-                    >
-                      <Calendar size={14} />
-                      Google Calendar
-                    </a>
-                    <a
-                      href={APPLE_CALENDAR_URL}
-                      target="_blank"
-                      rel="noreferrer"
-                      download="wedding_shreyasi_purushottam.ics"
-                      onClick={() => setShowCalendarChoice(false)}
-                      className="flex items-center justify-center gap-2.5 w-full py-3 rounded-xl border border-gold/30 bg-gold/10 text-gold text-[11px] font-bold tracking-[0.15em] uppercase hover:bg-gold hover:text-maroon transition-all duration-300"
-                    >
-                      <Calendar size={14} />
-                      Apple Calendar
-                    </a>
-                  </div>
-
-                  <button
-                    onClick={() => setShowCalendarChoice(false)}
-                    className="w-full py-3 text-[10px] tracking-[0.2em] text-ivory/40 uppercase font-semibold hover:text-ivory/70 transition-colors border-t border-gold/15"
-                  >
-                    Cancel
-                  </button>
-                </motion.div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          {/* Pre-Wedding Calendar Choice Bottom Sheet */}
-          <AnimatePresence>
-            {showPreWeddingCalendarChoice && (
-              <motion.div
-                className="fixed inset-0 z-[200] flex items-end justify-center"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.25 }}
-              >
-                <div
-                  className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-                  onClick={() => setShowPreWeddingCalendarChoice(false)}
-                />
-                <motion.div
-                  className="relative w-full max-w-sm mx-4 mb-6 rounded-2xl overflow-hidden border border-gold/30 shadow-[0_-10px_40px_rgba(0,0,0,0.4)]"
-                  style={{ backgroundColor: '#3A0A12' }}
-                  initial={{ y: 100, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: 100, opacity: 0 }}
-                  transition={{ type: 'spring', damping: 28, stiffness: 300 }}
-                >
-                  <div className="flex justify-center pt-3 pb-1">
-                    <div className="w-8 h-1 rounded-full bg-gold/30"></div>
-                  </div>
-
-                  <p className="text-center text-[10px] tracking-[0.25em] text-gold/80 uppercase font-semibold pt-3 pb-4">
-                    Choose Calendar
-                  </p>
-
-                  <div className="flex flex-col gap-2 px-5 pb-5">
-                    <a
-                      href={PRE_WEDDING_GOOGLE_CALENDAR_URL}
-                      target="_blank"
-                      rel="noreferrer"
-                      onClick={() => setShowPreWeddingCalendarChoice(false)}
-                      className="flex items-center justify-center gap-2.5 w-full py-3 rounded-xl border border-gold/30 bg-gold/10 text-gold text-[11px] font-bold tracking-[0.15em] uppercase hover:bg-gold hover:text-maroon transition-all duration-300"
-                    >
-                      <Calendar size={14} />
-                      Google Calendar
-                    </a>
-                    <a
-                      href={PRE_WEDDING_APPLE_CALENDAR_URL}
-                      target="_blank"
-                      rel="noreferrer"
-                      download="pre_wedding_shreyasi_purushottam.ics"
-                      onClick={() => setShowPreWeddingCalendarChoice(false)}
-                      className="flex items-center justify-center gap-2.5 w-full py-3 rounded-xl border border-gold/30 bg-gold/10 text-gold text-[11px] font-bold tracking-[0.15em] uppercase hover:bg-gold hover:text-maroon transition-all duration-300"
-                    >
-                      <Calendar size={14} />
-                      Apple Calendar
-                    </a>
-                  </div>
-
-                  <button
-                    onClick={() => setShowPreWeddingCalendarChoice(false)}
-                    className="w-full py-3 text-[10px] tracking-[0.2em] text-ivory/40 uppercase font-semibold hover:text-ivory/70 transition-colors border-t border-gold/15"
-                  >
-                    Cancel
-                  </button>
-                </motion.div>
-              </motion.div>
-            )}
-          </AnimatePresence>
 
           {/* Bottom ornamental divider */}
           <motion.div
