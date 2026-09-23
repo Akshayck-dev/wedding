@@ -67,7 +67,7 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Shreyasi & Purushottam — Wedding · 9 November 2026" },
+      { title: "Shreyasi & Purushottam — Wedding · 25 November 2026" },
       { name: "description", content: "The family invites you to the wedding of Shreyasi & Purushottam." },
     ],
   }),
@@ -1043,7 +1043,7 @@ function EventSection() {
           SUNDAY
         </h4>
         <h3 className="font-serif-display text-xl sm:text-2xl text-gold mt-2 tracking-wider">
-          9 NOVEMBER 2026 1:00 PM - 3:00 PM
+          25 NOVEMBER 2026 1:00 PM - 3:00 PM
         </h3>
 
         <div className="my-6 text-gold/30 flex items-center justify-center gap-4">

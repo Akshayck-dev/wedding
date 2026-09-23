@@ -77,10 +77,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, viewport-fit=cover" },
-      { title: "Shreyasi & Purushottam — Wedding · 9 November 2026" },
+      { title: "Shreyasi & Purushottam — Wedding · 25 November 2026" },
       { name: "description", content: "The family invites you to the wedding of Shreyasi & Purushottam." },
       // Open Graph
-      { property: "og:title", content: "Shreyasi & Purushottam — Wedding · 9 November 2026" },
+      { property: "og:title", content: "Shreyasi & Purushottam — Wedding · 25 November 2026" },
       { property: "og:description", content: "The family invites you to the wedding of Shreyasi & Purushottam." },
       { property: "og:image", content: "https://www.shreyasiwedspurushottam.in/og-image.jpg" },
       { property: "og:url", content: "https://www.shreyasiwedspurushottam.in" },
@@ -88,7 +88,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "Shreyasi Weds Purushottam" },
       // Twitter Card
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Shreyasi & Purushottam — Wedding · 9 November 2026" },
+      { name: "twitter:title", content: "Shreyasi & Purushottam — Wedding · 25 November 2026" },
       { name: "twitter:description", content: "The family invites you to the wedding of Shreyasi & Purushottam." },
       { name: "twitter:image", content: "https://www.shreyasiwedspurushottam.in/og-image.jpg" },
     ],

@@ -71,7 +71,7 @@ export function EnvelopeDateReveal({ onReveal, onClose, onOpenStart }: { onRevea
              transition={{ duration: 1.5, delay: isOpen ? 3.8 : 0, ease: "easeOut" }}
              className="font-script text-[44px] text-[#B8862D] leading-none drop-shadow-sm flex items-center justify-center"
            >
-             November 9,
+             November 25,
            </motion.div>
 
            <motion.div
