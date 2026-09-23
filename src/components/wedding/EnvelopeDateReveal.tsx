@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import spLogo from "@/assets/SP Logo.png";
 
 export function EnvelopeDateReveal({ onReveal, onClose, onOpenStart }: { onReveal?: () => void, onClose?: () => void, onOpenStart?: () => void }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -126,7 +127,7 @@ export function EnvelopeDateReveal({ onReveal, onClose, onOpenStart }: { onRevea
               {/* Wax Seal */}
               <div className="relative w-[52px] h-[52px] rounded-full bg-gradient-to-br from-[#8a1c1c] to-[#4a0909] shadow-[0_4px_10px_rgba(0,0,0,0.4)] flex items-center justify-center border border-[#5a1010] transform transition-transform group-hover:scale-105">
                  <div className="absolute inset-1 rounded-full border border-[#B8862D]/40"></div>
-                 <span className="font-script text-[22px] text-[#D8B96A] drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] pt-1">S&P</span>
+                 <img src={spLogo} alt="S&P Logo" className="w-[30px] h-[30px] object-contain drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]" />
               </div>
             </motion.div>
           )}
