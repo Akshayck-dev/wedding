@@ -133,20 +133,20 @@ function Index() {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -60, opacity: 0 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="fixed top-0 left-0 right-0 z-50 flex h-14 items-center justify-between border-b border-gold/30 bg-maroon/95 px-6 backdrop-blur-md safe-top shadow-soft"
+            className="fixed top-0 left-0 right-0 z-[150] flex h-14 items-center justify-between border-b border-gold/30 bg-maroon/95 px-6 backdrop-blur-md safe-top shadow-soft"
           >
             {/* Calligraphy Initials logo */}
             <div 
               onClick={() => scrollToSection("invitation")}
               className="font-script text-2xl text-gold-gradient tracking-wider pt-1 select-none cursor-pointer"
             >
-              S &amp; M
+              S &amp; P
             </div>
             
             {/* Decorative luxury menu lines */}
             <div 
               onClick={() => setMenuOpen(!menuOpen)}
-              className="flex flex-col gap-1 cursor-pointer p-2 relative z-[60]"
+              className="flex flex-col gap-1 cursor-pointer p-2 relative z-[160]"
             >
               {menuOpen ? (
                 <div className="relative h-5 w-5 flex items-center justify-center">
@@ -173,7 +173,7 @@ function Index() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-maroon/95 backdrop-blur-lg"
+            className="fixed inset-0 z-[140] flex flex-col items-center justify-center bg-maroon/95 backdrop-blur-lg"
           >
             {/* Decorative floral motifs background */}
             <div className="absolute inset-4 pointer-events-none rounded-[1.5rem] border border-gold/10" />
