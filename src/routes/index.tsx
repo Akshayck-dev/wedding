@@ -14,7 +14,8 @@ import weddingBg from "@/assets/wedding_bg.webp";
 import spLogo from "@/assets/SP Logo.png";
 import ajayaImg from "@/assets/ajaya.jpeg";
 import ashokImg from "@/assets/ashok.jpeg";
-import rishiImg from "@/assets/rishi new.jpeg";
+import rishiNewImg from "@/assets/rishi new.jpeg";
+import rishiOldImg from "@/assets/rishi.jpeg";
 import silviImg from "@/assets/Silvi.jpeg";
 import atharvaImg from "@/assets/atharva.jpeg";
 import { FloatingPetals } from "@/components/wedding/FloatingPetals";
@@ -1329,7 +1330,7 @@ function RsvpSection() {
            {/* Row 1 */}
            <div className="flex justify-center gap-4 sm:gap-5 w-full">
               {[
-                { name: 'Ashok', img: rishiImg }, 
+                { name: 'Ashok', img: rishiOldImg }, 
                 { name: 'Ajaya', img: ajayaImg }
               ].map((member, i) => (
                 <motion.div 
@@ -1351,7 +1352,7 @@ function RsvpSection() {
            <div className="flex justify-center gap-3 sm:gap-4 w-full">
               {[
                 { name: 'Silvi', img: silviImg }, 
-                { name: 'Rishi', img: ashokImg }, 
+                { name: 'Rishi', img: rishiNewImg }, 
                 { name: 'Atharva', img: atharvaImg }
               ].map((member, i) => (
                 <motion.div 
