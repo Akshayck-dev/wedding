@@ -51,20 +51,8 @@ const GOOGLE_CALENDAR_URL =
 const APPLE_CALENDAR_URL =
   "data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ADTSTART:20261125T133000Z%0ADTEND:20261125T173000Z%0ASUMMARY:The Wedding - Shreyasi %26 Purushottam%0ADESCRIPTION:Join us for our wedding celebration.%0ALOCATION:The Ritz-Carlton, Bengaluru%0AEND:VEVENT%0AEND:VCALENDAR";
 
-const handleCalendarClick = (googleUrl: string, appleUrl: string) => {
-  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-  const isMac = /MacIntel/.test(navigator.platform);
-  
-  if (isIOS || isMac) {
-    const a = document.createElement('a');
-    a.href = appleUrl;
-    a.download = 'wedding_invitation.ics';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  } else {
-    window.open(googleUrl, '_blank');
-  }
+const isAppleDevice = () => {
+  return /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) || /MacIntel/.test(navigator.platform);
 };
 
 
@@ -288,7 +276,7 @@ function Hero({ onOpen }: { onOpen: () => void }) {
       ></motion.div>
       
       <motion.div 
-        className="relative z-10 w-full max-w-md mx-auto h-full flex flex-col items-center justify-start pt-[6vh] sm:pt-[8vh] px-10 sm:px-14"
+        className="relative z-10 w-full max-w-md mx-auto h-full flex flex-col items-center justify-start pt-[2vh] sm:pt-[4vh] px-4"
         style={{ opacity: foregroundOpacity, y: foregroundY }}
       >
         {/* Ganesha illustration */}
@@ -321,7 +309,7 @@ function Hero({ onOpen }: { onOpen: () => void }) {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2.6, duration: 1, ease: "easeOut" }}
-          className="text-center mb-6 max-w-[340px]"
+          className="text-center mb-4 max-w-[340px] px-6 sm:px-8"
         >
           <p className="text-[12px] sm:text-[13px] leading-[2.2] text-[#2C1810] font-serif font-bold drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)] tracking-[0.15em] uppercase">
             WITH HEARTS FULL OF JOY,<br/>
@@ -331,17 +319,6 @@ function Hero({ onOpen }: { onOpen: () => void }) {
           </p>
         </motion.div>
 
-        {/* Small diamond divider */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2.8, duration: 1 }}
-          className="mb-6 flex items-center justify-center gap-1 text-[#A67C43] opacity-70"
-        >
-          <div className="w-8 h-[1px] bg-current"></div>
-          <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M5 0 L10 5 L5 10 L0 5 Z"/></svg>
-          <div className="w-8 h-[1px] bg-current"></div>
-        </motion.div>
 
         {/* SHREYASI */}
         <motion.div 
@@ -372,7 +349,7 @@ function Hero({ onOpen }: { onOpen: () => void }) {
           transition={{ delay: 3.2, duration: 1, ease: "easeOut" }}
           className="flex flex-col items-center text-center w-full mb-6"
         >
-          <h1 className="font-script text-[64px] sm:text-[80px] text-[#5A3A3A] font-bold leading-[0.8] drop-shadow-[0_2px_2px_rgba(255,255,255,0.8)]">Purushottam</h1>
+          <h1 className="font-script text-[54px] sm:text-[72px] text-[#5A3A3A] font-bold leading-[0.8] drop-shadow-[0_2px_2px_rgba(255,255,255,0.8)]">Purushottam</h1>
         </motion.div>
 
         {/* Parents */}
@@ -380,7 +357,7 @@ function Hero({ onOpen }: { onOpen: () => void }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 3.3, duration: 1 }}
-          className="flex flex-col items-center text-center mb-4"
+          className="flex flex-col items-center text-center mb-4 bg-white/60 backdrop-blur-md rounded-xl py-3 px-6 border border-white/70 shadow-[0_4px_20px_rgba(0,0,0,0.1)]"
         >
           <p className="text-[12px] sm:text-[13px] text-[#2C1810] font-serif font-bold mb-1 drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)] tracking-[0.2em] uppercase">SON OF</p>
           <p className="text-[12px] sm:text-[13px] leading-[1.8] text-[#1A0F0A] font-serif font-bold drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)] tracking-[0.15em] uppercase">
@@ -532,7 +509,7 @@ function RevealSection() {
 
         {/* ═══════ PRE-WEDDING CELEBRATIONS — Location Section ═══════ */}
         <div
-          className="w-full mt-12 mb-10 relative overflow-hidden py-16 flex flex-col items-center z-20 mx-4 sm:mx-8 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-gold/30"
+          className="w-full mt-2 mb-8 relative overflow-hidden py-16 flex flex-col items-center z-20 mx-4 sm:mx-8 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-gold/30"
         >
           {/* Generated Background Image */}
           <div 
@@ -631,13 +608,21 @@ function RevealSection() {
                 <Navigation size={12} className="text-gold" />
                 Directions
               </button>
-              <button
-                onClick={() => handleCalendarClick(PRE_WEDDING_GOOGLE_CALENDAR_URL, PRE_WEDDING_APPLE_CALENDAR_URL)}
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (isAppleDevice()) {
+                    window.location.href = PRE_WEDDING_APPLE_CALENDAR_URL;
+                  } else {
+                    window.open(PRE_WEDDING_GOOGLE_CALENDAR_URL, '_blank');
+                  }
+                }}
                 className="inline-flex items-center gap-2 rounded-full border border-gold bg-maroon/90 px-6 py-2.5 text-[10px] font-bold tracking-[0.2em] text-ivory uppercase hover:bg-maroon transition-all duration-300 shadow-md cursor-pointer"
               >
                 <Calendar size={12} className="text-gold" />
                 Add to Calendar
-              </button>
+              </a>
             </motion.div>
             
             {/* Bottom ornamental divider */}
@@ -759,13 +744,21 @@ function RevealSection() {
                 <Navigation size={12} className="text-gold" />
                 Directions
               </button>
-              <button
-                onClick={() => handleCalendarClick(GOOGLE_CALENDAR_URL, APPLE_CALENDAR_URL)}
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (isAppleDevice()) {
+                    window.location.href = APPLE_CALENDAR_URL;
+                  } else {
+                    window.open(GOOGLE_CALENDAR_URL, '_blank');
+                  }
+                }}
                 className="inline-flex items-center gap-2 rounded-full border border-gold bg-maroon/90 px-6 py-2.5 text-[10px] font-bold tracking-[0.2em] text-ivory uppercase hover:bg-maroon transition-all duration-300 shadow-md cursor-pointer"
               >
                 <Calendar size={12} className="text-gold" />
                 Add to Calendar
-              </button>
+              </a>
             </motion.div>
             
             {/* Bottom ornamental divider */}
@@ -1165,7 +1158,7 @@ function GallerySection() {
 /* ---------------- RSVP ---------------- */
 function RsvpSection() {
   return (
-    <Section id="rsvp" className="flex flex-col items-center justify-center relative z-20 pt-8 pb-16">
+    <Section id="rsvp" className="flex flex-col items-center justify-center relative z-20 pt-4 pb-8">
       <RsvpForm />
     </Section>
   );

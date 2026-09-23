@@ -67,20 +67,7 @@ export function RsvpForm() {
 
   return (
     <div className="w-full max-w-lg mx-auto flex flex-col items-center text-center px-4">
-      {/* Top Ornamental Divider */}
-      <motion.div
-        className="flex items-center gap-3 w-full max-w-[200px] mb-8"
-        initial={{ opacity: 0, scaleX: 0 }}
-        whileInView={{ opacity: 1, scaleX: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
-        <div className="flex-1 h-[1px] bg-gradient-to-r from-transparent via-gold/60 to-gold/40"></div>
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="text-gold/70 shrink-0">
-          <path d="M12 2L14 8L20 8L15 12L17 18L12 14L7 18L9 12L4 8L10 8Z" fill="currentColor" />
-        </svg>
-        <div className="flex-1 h-[1px] bg-gradient-to-l from-transparent via-gold/60 to-gold/40"></div>
-      </motion.div>
+
 
       <Reveal>
         <h2 className="font-serif-display text-3xl sm:text-4xl tracking-[0.15em] uppercase text-gold font-bold mb-4">
@@ -269,20 +256,7 @@ export function RsvpForm() {
         )}
       </AnimatePresence>
 
-      {/* Bottom Ornamental Divider */}
-      <motion.div
-        className="flex items-center gap-3 w-full max-w-[200px] mt-16"
-        initial={{ opacity: 0, scaleX: 0 }}
-        whileInView={{ opacity: 1, scaleX: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
-        <div className="flex-1 h-[1px] bg-gradient-to-r from-transparent via-gold/60 to-gold/40"></div>
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="text-gold/70 shrink-0">
-          <path d="M12 2L14 8L20 8L15 12L17 18L12 14L7 18L9 12L4 8L10 8Z" fill="currentColor" />
-        </svg>
-        <div className="flex-1 h-[1px] bg-gradient-to-l from-transparent via-gold/60 to-gold/40"></div>
-      </motion.div>
+
     </div>
   );
 }

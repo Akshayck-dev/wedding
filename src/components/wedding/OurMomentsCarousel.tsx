@@ -50,20 +50,8 @@ export function OurMomentsCarousel() {
   };
 
   return (
-    <section className="w-full relative pt-4 pb-12 flex flex-col items-center bg-transparent overflow-hidden">
+    <section className="w-full relative pt-0 pb-12 flex flex-col items-center bg-transparent overflow-hidden">
       <Reveal className="w-full flex flex-col items-center">
-        {/* Top Ornament */}
-        <motion.div
-          className="flex items-center gap-3 w-full max-w-[260px] mb-8"
-          variants={{ hidden: { opacity: 0, scaleX: 0 }, visible: { opacity: 1, scaleX: 1 } }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          <div className="flex-1 h-[1px] bg-gradient-to-r from-transparent via-gold/60 to-gold/40"></div>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="text-gold/70 shrink-0">
-            <path d="M12 2L14 8L20 8L15 12L17 18L12 14L7 18L9 12L4 8L10 8Z" fill="currentColor" />
-          </svg>
-          <div className="flex-1 h-[1px] bg-gradient-to-l from-transparent via-gold/60 to-gold/40"></div>
-        </motion.div>
 
         {/* Titles */}
         <motion.p
@@ -75,7 +63,7 @@ export function OurMomentsCarousel() {
         </motion.p>
 
         <motion.h3
-          className="font-serif-display text-2xl sm:text-3xl tracking-[0.15em] uppercase text-center font-semibold mb-12"
+          className="font-serif-display text-2xl sm:text-3xl tracking-[0.15em] uppercase text-center font-semibold mb-6"
           style={{
             background: "linear-gradient(135deg, #D4AF37 0%, #F5EBD5 50%, #C9A227 100%)",
             WebkitBackgroundClip: "text",
@@ -87,6 +75,7 @@ export function OurMomentsCarousel() {
         >
           Our Moments
         </motion.h3>
+
 
         {/* Carousel Container */}
         <div className="relative w-full max-w-4xl h-[460px] sm:h-[580px] flex justify-center items-center perspective-[1200px]">

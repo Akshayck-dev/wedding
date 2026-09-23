@@ -50,7 +50,7 @@ export function EnvelopeReveal({ onComplete }: { onComplete?: () => void }) {
         <img 
           src="/Photo.jpg.jpeg" 
           alt="" 
-          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none opacity-90"
+          className="absolute inset-0 w-full h-full object-cover object-[65%_center] pointer-events-none opacity-90"
         />
 
         {/* Interactive Seal & Text */}
