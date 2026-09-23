@@ -609,15 +609,10 @@ function RevealSection() {
                 Directions
               </button>
               <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (isAppleDevice()) {
-                    window.location.href = PRE_WEDDING_APPLE_CALENDAR_URL;
-                  } else {
-                    window.open(PRE_WEDDING_GOOGLE_CALENDAR_URL, '_blank');
-                  }
-                }}
+                href={isAppleDevice() ? PRE_WEDDING_APPLE_CALENDAR_URL : PRE_WEDDING_GOOGLE_CALENDAR_URL}
+                target={isAppleDevice() ? "_self" : "_blank"}
+                rel="noopener noreferrer"
+                download={isAppleDevice() ? "pre_wedding.ics" : undefined}
                 className="inline-flex items-center gap-2 rounded-full border border-gold bg-maroon/90 px-6 py-2.5 text-[10px] font-bold tracking-[0.2em] text-ivory uppercase hover:bg-maroon transition-all duration-300 shadow-md cursor-pointer"
               >
                 <Calendar size={12} className="text-gold" />
@@ -745,15 +740,10 @@ function RevealSection() {
                 Directions
               </button>
               <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (isAppleDevice()) {
-                    window.location.href = APPLE_CALENDAR_URL;
-                  } else {
-                    window.open(GOOGLE_CALENDAR_URL, '_blank');
-                  }
-                }}
+                href={isAppleDevice() ? APPLE_CALENDAR_URL : GOOGLE_CALENDAR_URL}
+                target={isAppleDevice() ? "_self" : "_blank"}
+                rel="noopener noreferrer"
+                download={isAppleDevice() ? "wedding.ics" : undefined}
                 className="inline-flex items-center gap-2 rounded-full border border-gold bg-maroon/90 px-6 py-2.5 text-[10px] font-bold tracking-[0.2em] text-ivory uppercase hover:bg-maroon transition-all duration-300 shadow-md cursor-pointer"
               >
                 <Calendar size={12} className="text-gold" />
