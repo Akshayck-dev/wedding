@@ -42,7 +42,7 @@ const PRE_WEDDING_APPLE_MAPS_URL =
   "https://maps.apple.com/?address=47/1+Dickenson+Road,+Manipal+Centre,+Bengaluru,+Karnataka+560042,+India&ll=12.974846,77.612837&q=Royal+Orchid+Central";
 
 const PRE_WEDDING_GOOGLE_CALENDAR_URL =
-  "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pre-Wedding+Celebrations+-+Shreyasi+%26+Purushottam&dates=20261123T123000Z/20261123T173000Z&details=Join+us+for+Haldi,+Mehendi,+and+Sangeet.&location=Royal+Orchid+Central,+Bengaluru";
+  "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pre-Wedding+Celebrations+-+Shreyasi+%26+Purushottam&dates=20261123T133000Z/20261123T183000Z&details=Join+us+for+Haldi,+Mehendi,+and+Sangeet.&location=Royal+Orchid+Central,+Bengaluru";
 const PRE_WEDDING_APPLE_CALENDAR_URL = "/pre_wedding.ics";
 
 const GOOGLE_CALENDAR_URL =
