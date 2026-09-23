@@ -12,6 +12,10 @@ import revealBg from "@/assets/media-generation-wedding-bg-pastel-watercolor-0-9
 import preWeddingBg from "@/assets/pre_wedding_bg.webp";
 import weddingBg from "@/assets/wedding_bg.webp";
 import spLogo from "@/assets/SP Logo.png";
+import ajayaImg from "@/assets/ajaya.jpeg";
+import ashokImg from "@/assets/ashok.jpeg";
+import rishiImg from "@/assets/rishi.jpeg";
+import silviImg from "@/assets/Silvi.jpeg";
 import { FloatingPetals } from "@/components/wedding/FloatingPetals";
 import { FloatingButterflies } from "@/components/wedding/FloatingButterflies";
 import { Ornament } from "@/components/wedding/Ornament";
@@ -1197,6 +1201,8 @@ function GallerySection() {
 
 /* ---------------- RSVP ---------------- */
 function RsvpSection() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   const handleWhatsAppShare = () => {
     const text = encodeURIComponent(
       "We are delighted to invite you to the wedding of Shreyasi & Purushottam.\n\nPlease view our wedding invitation and RSVP here:\n" +
@@ -1206,8 +1212,9 @@ function RsvpSection() {
   };
 
   return (
-    <Section id="rsvp" className="flex flex-col items-center justify-center relative z-20 pt-4 pb-12">
-      <RsvpForm />
+    <>
+      <Section id="rsvp" className="flex flex-col items-center justify-center relative z-20 pt-4 pb-12">
+        <RsvpForm />
       
       <div className="mt-12 flex flex-col items-center gap-4">
         <p className="text-[10px] sm:text-[11px] text-ivory/60 font-serif tracking-[0.1em] italic text-center max-w-xs">
@@ -1221,30 +1228,53 @@ function RsvpSection() {
           Share via WhatsApp
         </button>
       </div>
+    </Section>
 
-      {/* Family Acknowledgement */}
-      <div className="mt-24 mb-4 relative w-full max-w-[420px] bg-[#FFFBF2] rounded-[24px] shadow-[0_15px_40px_rgba(0,0,0,0.15)] flex flex-col pt-12 pb-14 px-4 mx-auto overflow-hidden border-[0.5px] border-[#E7C66A]/40">
+    {/* ═══════ FAMILY ACKNOWLEDGEMENT SECTION ═══════ */}
+    <section className="w-full relative flex flex-col items-center pt-24 pb-20 px-4 overflow-hidden z-20">
+      <motion.div 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        variants={{
+          hidden: {},
+          visible: { transition: { staggerChildren: 0.15 } }
+        }}
+        className="w-full max-w-[420px] relative flex flex-col items-center mx-auto"
+      >
         
         {/* Top Left Leaf Motif */}
-        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#E7C66A" strokeWidth="0.5" className="absolute -top-4 -left-4 opacity-40 pointer-events-none">
+        <motion.svg 
+          variants={{ hidden: { opacity: 0, scale: 0.8 }, visible: { opacity: 0.5, scale: 1 } }}
+          transition={{ duration: 1 }}
+          width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#E7C66A" strokeWidth="0.6" className="absolute -top-6 -left-6 pointer-events-none"
+        >
            <path d="M4 20S8 12 15 9" />
            <path d="M15 9c-2.5 2.5-2.5 6 0 8.5 2.5-2.5 6-2.5 8.5 0-3.5-5-8.5-8.5-8.5-8.5z" />
            <path d="M10 14c-1.5 1.5-1.5 3.5 0 5 1.5-1.5 3.5-1.5 5 0-2-3-5-5-5-5z" />
            <circle cx="6" cy="10" r="0.8" fill="#E7C66A" stroke="none" />
            <circle cx="10" cy="5" r="0.6" fill="#E7C66A" stroke="none" />
-        </svg>
+        </motion.svg>
 
         {/* Bottom Right Leaf Motif */}
-        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#E7C66A" strokeWidth="0.5" className="absolute -bottom-4 -right-4 opacity-40 pointer-events-none" transform="scale(-1, -1)">
+        <motion.svg 
+          variants={{ hidden: { opacity: 0, scale: 0.8 }, visible: { opacity: 0.4, scale: 1 } }}
+          transition={{ duration: 1 }}
+          width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#E7C66A" strokeWidth="0.5" className="absolute -bottom-6 -right-6 pointer-events-none" transform="scale(-1, -1)"
+        >
            <path d="M4 20S8 12 15 9" />
            <path d="M15 9c-2.5 2.5-2.5 6 0 8.5 2.5-2.5 6-2.5 8.5 0-3.5-5-8.5-8.5-8.5-8.5z" />
            <path d="M10 14c-1.5 1.5-1.5 3.5 0 5 1.5-1.5 3.5-1.5 5 0-2-3-5-5-5-5z" />
            <circle cx="6" cy="10" r="0.8" fill="#E7C66A" stroke="none" />
            <circle cx="10" cy="5" r="0.6" fill="#E7C66A" stroke="none" />
-        </svg>
+        </motion.svg>
 
         {/* Top floral divider */}
-        <div className="flex items-center justify-center gap-3 w-full max-w-[180px] opacity-70 mb-8 mx-auto z-10">
+        <motion.div 
+          variants={{ hidden: { opacity: 0, scaleX: 0.5 }, visible: { opacity: 0.7, scaleX: 1 } }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="flex items-center justify-center gap-3 w-full max-w-[180px] mb-8 mx-auto z-10"
+        >
           <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-[#E7C66A]"></div>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E7C66A" strokeWidth="1">
              <path d="M12 22v-7" />
@@ -1254,74 +1284,127 @@ function RsvpSection() {
              <path d="M12 15c1-.5 1.5-1 1.5-2 0-.5-.5-1-1.5-1" />
           </svg>
           <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-[#E7C66A]"></div>
-        </div>
+        </motion.div>
 
-        <h5 className="font-serif text-[10px] sm:text-[11px] text-[#A67C43] tracking-[0.4em] uppercase mb-6 opacity-90 text-center z-10">
+        <motion.h5 
+          variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 0.9, y: 0 } }}
+          transition={{ duration: 0.8 }}
+          className="font-serif text-[10px] sm:text-[11px] text-[#C9A227] tracking-[0.4em] uppercase mb-6 text-center z-10"
+        >
           With love from
-        </h5>
+        </motion.h5>
         
-        <h3 className="font-serif text-[28px] sm:text-[34px] text-[#4A0715] mb-1 text-center z-10">
+        <motion.h3 
+          variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}
+          transition={{ duration: 0.8 }}
+          className="font-serif text-[24px] sm:text-[28px] text-[#FFF8E7] mb-1 text-center z-10"
+        >
           Bride's <span className="font-light opacity-60 px-1">/</span> Shreyasi's
-        </h3>
+        </motion.h3>
         
-        <h4 className="font-script text-[54px] sm:text-[68px] text-[#A67C43] mb-8 leading-none text-center z-10 drop-shadow-sm">
+        <motion.h4 
+          variants={{ hidden: { opacity: 0, y: 15 }, visible: { opacity: 1, y: 0 } }}
+          transition={{ duration: 1 }}
+          className="font-script text-[54px] sm:text-[68px] text-[#E7C66A] mb-8 leading-none text-center z-10 drop-shadow-sm"
+        >
           Family
-        </h4>
+        </motion.h4>
 
         {/* Heart Divider */}
-        <div className="flex items-center gap-3 w-[160px] opacity-60 mb-10 mx-auto z-10">
+        <motion.div 
+          variants={{ hidden: { opacity: 0, scaleX: 0.5 }, visible: { opacity: 0.6, scaleX: 1 } }}
+          transition={{ duration: 0.8 }}
+          className="flex items-center gap-3 w-[160px] mb-12 mx-auto z-10"
+        >
           <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-[#E7C66A]"></div>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E7C66A" strokeWidth="1.2">
             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
           </svg>
           <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-[#E7C66A]"></div>
-        </div>
+        </motion.div>
 
         {/* Names Pills */}
-        <div className="flex flex-col gap-3 sm:gap-4 w-full max-w-[320px] mx-auto mb-12 z-10">
+        <div className="flex flex-col gap-4 sm:gap-5 w-full max-w-[340px] mx-auto mb-14 z-10">
            {/* Row 1 */}
-           <div className="flex justify-center gap-3 sm:gap-4 w-full">
-              {['Ashok', 'Ajaya'].map(name => (
-                <div key={name} className="flex flex-col items-center justify-center w-[120px] sm:w-[140px] py-3 sm:py-4 bg-[#FFFBF2] border-[0.5px] border-[#E7C66A]/60 rounded-full shadow-[0_4px_12px_rgba(231,198,106,0.1)] relative">
-                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E7C66A" strokeWidth="1" className="mb-1 opacity-80">
-                      <path d="M12 22v-5" />
-                      <path d="M12 17c-1-1-2-1-2-2 0-1 1-1 1-1" />
-                      <path d="M12 17c1-1 2-1 2-2 0-1-1-1-1-1" />
-                   </svg>
-                   <span className="font-serif text-[15px] sm:text-[17px] text-[#4A0715] tracking-wide font-medium">{name}</span>
-                </div>
+           <div className="flex justify-center gap-4 sm:gap-5 w-full">
+              {[
+                { name: 'Ashok', img: ashokImg }, 
+                { name: 'Ajaya', img: ajayaImg }
+              ].map((member, i) => (
+                <motion.div 
+                  key={member.name} 
+                  variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                  transition={{ duration: 0.6 }}
+                  onClick={() => member.img && setSelectedImage(member.img)}
+                  whileTap={{ scale: 1.03, boxShadow: "0 0 20px rgba(231,198,106,0.3)" }}
+                  className="flex flex-col items-center justify-center w-[130px] sm:w-[150px] py-4 bg-transparent border border-[#E7C66A]/40 rounded-[32px] shadow-[0_4px_20px_rgba(231,198,106,0.05)] relative cursor-pointer group hover:border-[#E7C66A]/70 transition-colors"
+                >
+                   <div className="w-[52px] h-[52px] rounded-full overflow-hidden mb-3 border border-[#E7C66A]/60 p-0.5 opacity-90 group-hover:opacity-100 transition-opacity">
+                      <img src={member.img} alt={member.name} className="w-full h-full object-cover rounded-full" />
+                   </div>
+                   <span className="font-serif text-[17px] sm:text-[20px] text-[#FFF8E7] tracking-wide font-medium">{member.name}</span>
+                </motion.div>
               ))}
            </div>
            {/* Row 2 */}
            <div className="flex justify-center gap-3 sm:gap-4 w-full">
-              {['Silvi', 'Rishi', 'Atharva'].map(name => (
-                <div key={name} className="flex flex-col items-center justify-center flex-1 py-3 sm:py-4 bg-[#FFFBF2] border-[0.5px] border-[#E7C66A]/60 rounded-full shadow-[0_4px_12px_rgba(231,198,106,0.1)] relative">
-                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E7C66A" strokeWidth="1" className="mb-1 opacity-80">
-                      <path d="M12 22v-5" />
-                      <path d="M12 17c-1-1-2-1-2-2 0-1 1-1 1-1" />
-                      <path d="M12 17c1-1 2-1 2-2 0-1-1-1-1-1" />
-                   </svg>
-                   <span className="font-serif text-[14px] sm:text-[15px] text-[#4A0715] tracking-wide font-medium">{name}</span>
-                </div>
+              {[
+                { name: 'Silvi', img: silviImg }, 
+                { name: 'Rishi', img: rishiImg }, 
+                { name: 'Atharva', img: null }
+              ].map((member, i) => (
+                <motion.div 
+                  key={member.name} 
+                  variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                  transition={{ duration: 0.6 }}
+                  onClick={() => member.img && setSelectedImage(member.img)}
+                  whileTap={{ scale: 1.03, boxShadow: "0 0 20px rgba(231,198,106,0.3)" }}
+                  className="flex flex-col items-center justify-center flex-1 min-w-[90px] py-4 bg-transparent border border-[#E7C66A]/40 rounded-[32px] shadow-[0_4px_20px_rgba(231,198,106,0.05)] relative cursor-pointer group hover:border-[#E7C66A]/70 transition-colors"
+                >
+                   {member.img ? (
+                     <div className="w-[44px] h-[44px] rounded-full overflow-hidden mb-2 border border-[#E7C66A]/60 p-0.5 opacity-90 group-hover:opacity-100 transition-opacity">
+                        <img src={member.img} alt={member.name} className="w-full h-full object-cover object-top rounded-full" />
+                     </div>
+                   ) : (
+                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E7C66A" strokeWidth="1" className="mb-3 mt-1 opacity-70 group-hover:opacity-100 transition-opacity">
+                        <path d="M12 22v-5" />
+                        <path d="M12 17c-1-1-2-1-2-2 0-1 1-1 1-1" />
+                        <path d="M12 17c1-1 2-1 2-2 0-1-1-1-1-1" />
+                     </svg>
+                   )}
+                   <span className="font-serif text-[15px] sm:text-[18px] text-[#FFF8E7] tracking-wide font-medium">{member.name}</span>
+                </motion.div>
               ))}
            </div>
         </div>
 
         {/* Bottom Star Divider 1 */}
-        <div className="flex items-center gap-3 w-[160px] opacity-60 mb-6 mx-auto z-10">
+        <motion.div 
+          variants={{ hidden: { opacity: 0, scaleX: 0.5 }, visible: { opacity: 0.6, scaleX: 1 } }}
+          transition={{ duration: 0.8 }}
+          className="flex items-center gap-3 w-[160px] mb-8 mx-auto z-10"
+        >
           <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-[#E7C66A]"></div>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E7C66A" strokeWidth="1.2">
             <path d="M12 2L14 8L20 8L15 12L17 18L12 14L7 18L9 12L4 8L10 8Z" fill="currentColor" opacity="0.8"/>
           </svg>
           <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-[#E7C66A]"></div>
-        </div>
+        </motion.div>
 
-        <p className="font-serif text-[9px] sm:text-[10px] text-[#A67C43] tracking-[0.4em] uppercase text-center mb-6 leading-loose max-w-[200px] mx-auto z-10 font-medium">
+        <motion.p 
+          variants={{ hidden: { opacity: 0, y: 15 }, visible: { opacity: 1, y: 0 } }}
+          transition={{ duration: 1, delay: 0.2 }}
+          className="font-serif text-[12px] sm:text-[14px] text-[#E7C66A] tracking-[0.5em] uppercase text-center mb-8 leading-loose max-w-[280px] mx-auto z-10 font-bold drop-shadow-sm"
+        >
           Together in love<br/>and blessings
-        </p>
+        </motion.p>
 
         {/* Bottom Star Divider 2 */}
-        <div className="flex items-center gap-[6px] w-[120px] opacity-60 mx-auto z-10">
+        <motion.div 
+          variants={{ hidden: { opacity: 0 }, visible: { opacity: 0.6 } }}
+          transition={{ duration: 1.2, delay: 0.4 }}
+          className="flex items-center gap-[6px] w-[120px] mx-auto z-10"
+        >
           <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-[#E7C66A]"></div>
           <div className="flex gap-1 items-center">
              <div className="w-[3px] h-[3px] bg-[#E7C66A] rounded-full"></div>
@@ -1331,9 +1414,45 @@ function RsvpSection() {
              <div className="w-[3px] h-[3px] bg-[#E7C66A] rounded-full"></div>
           </div>
           <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-[#E7C66A]"></div>
-        </div>
-      </div>
-    </Section>
+        </motion.div>
+      </motion.div>
+    </section>
+
+    {/* Image Modal */}
+    <AnimatePresence>
+      {selectedImage && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={() => setSelectedImage(null)}
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-md p-4 cursor-zoom-out"
+        >
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0, y: 20 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            exit={{ scale: 0.9, opacity: 0, y: 20 }}
+            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+            onClick={(e) => e.stopPropagation()}
+            className="relative max-w-[90vw] max-h-[80vh] flex flex-col items-center"
+          >
+            <button 
+              onClick={() => setSelectedImage(null)}
+              className="absolute -top-14 right-0 p-2 text-white/60 hover:text-white transition-colors cursor-pointer"
+            >
+              <X size={28} />
+            </button>
+            <img 
+              src={selectedImage} 
+              alt="Family Member" 
+              className="w-auto h-auto max-w-full rounded-[24px] shadow-2xl border border-white/20 object-contain" 
+              style={{ maxHeight: '75vh' }}
+            />
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+    </>
   );
 }
 
