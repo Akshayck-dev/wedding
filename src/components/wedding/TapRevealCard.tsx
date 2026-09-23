@@ -53,7 +53,7 @@ export function TapRevealCard({
 
       {/* Inner Box */}
       <div 
-        className={`relative w-full ${!isRevealed ? 'h-[120px]' : 'h-[150px]'} bg-[#FFFBF2] rounded-[16px] overflow-hidden transition-all duration-700 ease-in-out border-[0.5px] border-[#E7C66A]/50 ${!isRevealed ? "cursor-pointer hover:shadow-md shadow-sm" : "shadow-inner bg-[#FDF8EE]"}`} 
+        className={`relative w-full h-[120px] bg-[#FFFBF2] rounded-[16px] overflow-hidden transition-all duration-700 ease-in-out border-[0.5px] border-[#E7C66A]/50 ${!isRevealed ? "cursor-pointer hover:shadow-md shadow-sm" : "shadow-inner bg-[#FDF8EE]"}`} 
         onClick={handleReveal}
       >
         <AnimatePresence mode="wait">
@@ -104,10 +104,10 @@ export function TapRevealCard({
               transition={{ duration: 0.8, delay: 0.2 }}
               className="absolute inset-0 flex flex-col items-center justify-center px-4 py-4"
             >
-              <h3 className="font-serif text-[16px] text-[#8B7D6B] mb-2 tracking-wide">
+              <h3 className="font-serif text-[16px] text-[#8B7D6B] mb-1 tracking-wide">
                 Wednesday
               </h3>
-              <p className="font-serif text-[22px] text-[#4A0715] mb-4 tracking-wide font-medium">
+              <p className="font-serif text-[24px] sm:text-[26px] text-[#4A0715] mb-2 tracking-wide font-medium">
                 November 25<sup className="text-[12px]">th</sup> 2026
               </p>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E7C66A" strokeWidth="1.5" className="opacity-80">

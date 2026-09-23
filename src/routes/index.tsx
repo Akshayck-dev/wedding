@@ -1223,27 +1223,114 @@ function RsvpSection() {
       </div>
 
       {/* Family Acknowledgement */}
-      <div className="mt-20 mb-8 flex flex-col items-center gap-2 w-full">
-        <h5 className="font-serif text-[10px] sm:text-[12px] text-[#E7C66A] tracking-[0.3em] uppercase mb-1 opacity-90">
-          With love from
-        </h5>
-        <h4 className="font-script text-[32px] sm:text-[40px] text-[#FFF8E7] drop-shadow-sm mb-6">
-          Bride's / Shreyasi's Family
-        </h4>
+      <div className="mt-24 mb-4 relative w-full max-w-[420px] bg-[#FFFBF2] rounded-[24px] shadow-[0_15px_40px_rgba(0,0,0,0.15)] flex flex-col pt-12 pb-14 px-4 mx-auto overflow-hidden border-[0.5px] border-[#E7C66A]/40">
         
-        {/* Subtle Divider */}
-        <div className="flex items-center gap-3 w-[120px] opacity-60 mb-6">
+        {/* Top Left Leaf Motif */}
+        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#E7C66A" strokeWidth="0.5" className="absolute -top-4 -left-4 opacity-40 pointer-events-none">
+           <path d="M4 20S8 12 15 9" />
+           <path d="M15 9c-2.5 2.5-2.5 6 0 8.5 2.5-2.5 6-2.5 8.5 0-3.5-5-8.5-8.5-8.5-8.5z" />
+           <path d="M10 14c-1.5 1.5-1.5 3.5 0 5 1.5-1.5 3.5-1.5 5 0-2-3-5-5-5-5z" />
+           <circle cx="6" cy="10" r="0.8" fill="#E7C66A" stroke="none" />
+           <circle cx="10" cy="5" r="0.6" fill="#E7C66A" stroke="none" />
+        </svg>
+
+        {/* Bottom Right Leaf Motif */}
+        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#E7C66A" strokeWidth="0.5" className="absolute -bottom-4 -right-4 opacity-40 pointer-events-none" transform="scale(-1, -1)">
+           <path d="M4 20S8 12 15 9" />
+           <path d="M15 9c-2.5 2.5-2.5 6 0 8.5 2.5-2.5 6-2.5 8.5 0-3.5-5-8.5-8.5-8.5-8.5z" />
+           <path d="M10 14c-1.5 1.5-1.5 3.5 0 5 1.5-1.5 3.5-1.5 5 0-2-3-5-5-5-5z" />
+           <circle cx="6" cy="10" r="0.8" fill="#E7C66A" stroke="none" />
+           <circle cx="10" cy="5" r="0.6" fill="#E7C66A" stroke="none" />
+        </svg>
+
+        {/* Top floral divider */}
+        <div className="flex items-center justify-center gap-3 w-full max-w-[180px] opacity-70 mb-8 mx-auto z-10">
           <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-[#E7C66A]"></div>
-          <div className="w-[4px] h-[4px] border border-[#E7C66A] rotate-45"></div>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E7C66A" strokeWidth="1">
+             <path d="M12 22v-7" />
+             <path d="M12 15c-2-1-3-2-3-4 0-1 1-2 2-2" />
+             <path d="M12 15c2-1 3-2 3-4 0-1-1-2-2-2" />
+             <path d="M12 15c-1-.5-1.5-1-1.5-2 0-.5.5-1 1.5-1" />
+             <path d="M12 15c1-.5 1.5-1 1.5-2 0-.5-.5-1-1.5-1" />
+          </svg>
           <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-[#E7C66A]"></div>
         </div>
 
-        <div className="flex flex-col items-center gap-3 font-serif text-[15px] sm:text-[17px] text-[#FFF8E7]/90 tracking-[0.2em] uppercase text-center font-medium">
-          <p>Ashok</p>
-          <p>Ajaya</p>
-          <p>Silvi</p>
-          <p>Rishi</p>
-          <p>Atharva</p>
+        <h5 className="font-serif text-[10px] sm:text-[11px] text-[#A67C43] tracking-[0.4em] uppercase mb-6 opacity-90 text-center z-10">
+          With love from
+        </h5>
+        
+        <h3 className="font-serif text-[28px] sm:text-[34px] text-[#4A0715] mb-1 text-center z-10">
+          Bride's <span className="font-light opacity-60 px-1">/</span> Shreyasi's
+        </h3>
+        
+        <h4 className="font-script text-[54px] sm:text-[68px] text-[#A67C43] mb-8 leading-none text-center z-10 drop-shadow-sm">
+          Family
+        </h4>
+
+        {/* Heart Divider */}
+        <div className="flex items-center gap-3 w-[160px] opacity-60 mb-10 mx-auto z-10">
+          <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-[#E7C66A]"></div>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E7C66A" strokeWidth="1.2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+          </svg>
+          <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-[#E7C66A]"></div>
+        </div>
+
+        {/* Names Pills */}
+        <div className="flex flex-col gap-3 sm:gap-4 w-full max-w-[320px] mx-auto mb-12 z-10">
+           {/* Row 1 */}
+           <div className="flex justify-center gap-3 sm:gap-4 w-full">
+              {['Ashok', 'Ajaya'].map(name => (
+                <div key={name} className="flex flex-col items-center justify-center w-[120px] sm:w-[140px] py-3 sm:py-4 bg-[#FFFBF2] border-[0.5px] border-[#E7C66A]/60 rounded-full shadow-[0_4px_12px_rgba(231,198,106,0.1)] relative">
+                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E7C66A" strokeWidth="1" className="mb-1 opacity-80">
+                      <path d="M12 22v-5" />
+                      <path d="M12 17c-1-1-2-1-2-2 0-1 1-1 1-1" />
+                      <path d="M12 17c1-1 2-1 2-2 0-1-1-1-1-1" />
+                   </svg>
+                   <span className="font-serif text-[15px] sm:text-[17px] text-[#4A0715] tracking-wide font-medium">{name}</span>
+                </div>
+              ))}
+           </div>
+           {/* Row 2 */}
+           <div className="flex justify-center gap-3 sm:gap-4 w-full">
+              {['Silvi', 'Rishi', 'Atharva'].map(name => (
+                <div key={name} className="flex flex-col items-center justify-center flex-1 py-3 sm:py-4 bg-[#FFFBF2] border-[0.5px] border-[#E7C66A]/60 rounded-full shadow-[0_4px_12px_rgba(231,198,106,0.1)] relative">
+                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E7C66A" strokeWidth="1" className="mb-1 opacity-80">
+                      <path d="M12 22v-5" />
+                      <path d="M12 17c-1-1-2-1-2-2 0-1 1-1 1-1" />
+                      <path d="M12 17c1-1 2-1 2-2 0-1-1-1-1-1" />
+                   </svg>
+                   <span className="font-serif text-[14px] sm:text-[15px] text-[#4A0715] tracking-wide font-medium">{name}</span>
+                </div>
+              ))}
+           </div>
+        </div>
+
+        {/* Bottom Star Divider 1 */}
+        <div className="flex items-center gap-3 w-[160px] opacity-60 mb-6 mx-auto z-10">
+          <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-[#E7C66A]"></div>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E7C66A" strokeWidth="1.2">
+            <path d="M12 2L14 8L20 8L15 12L17 18L12 14L7 18L9 12L4 8L10 8Z" fill="currentColor" opacity="0.8"/>
+          </svg>
+          <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-[#E7C66A]"></div>
+        </div>
+
+        <p className="font-serif text-[9px] sm:text-[10px] text-[#A67C43] tracking-[0.4em] uppercase text-center mb-6 leading-loose max-w-[200px] mx-auto z-10 font-medium">
+          Together in love<br/>and blessings
+        </p>
+
+        {/* Bottom Star Divider 2 */}
+        <div className="flex items-center gap-[6px] w-[120px] opacity-60 mx-auto z-10">
+          <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-[#E7C66A]"></div>
+          <div className="flex gap-1 items-center">
+             <div className="w-[3px] h-[3px] bg-[#E7C66A] rounded-full"></div>
+             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E7C66A" strokeWidth="1.2">
+               <path d="M12 2L14 8L20 8L15 12L17 18L12 14L7 18L9 12L4 8L10 8Z" fill="currentColor" opacity="0.8"/>
+             </svg>
+             <div className="w-[3px] h-[3px] bg-[#E7C66A] rounded-full"></div>
+          </div>
+          <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-[#E7C66A]"></div>
         </div>
       </div>
     </Section>
