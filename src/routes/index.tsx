@@ -1329,7 +1329,7 @@ function RsvpSection() {
            {/* Row 1 */}
            <div className="flex justify-center gap-4 sm:gap-5 w-full">
               {[
-                { name: 'Ashok', img: ashokImg }, 
+                { name: 'Ashok', img: rishiImg }, 
                 { name: 'Ajaya', img: ajayaImg }
               ].map((member, i) => (
                 <motion.div 
@@ -1351,7 +1351,7 @@ function RsvpSection() {
            <div className="flex justify-center gap-3 sm:gap-4 w-full">
               {[
                 { name: 'Silvi', img: silviImg }, 
-                { name: 'Rishi', img: rishiImg }, 
+                { name: 'Rishi', img: ashokImg }, 
                 { name: 'Atharva', img: atharvaImg }
               ].map((member, i) => (
                 <motion.div 
