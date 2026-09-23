@@ -246,12 +246,6 @@ export function RsvpForm() {
               </>
             )}
 
-            <button
-              onClick={resetForm}
-              className="mt-2 text-[10px] tracking-[0.2em] font-bold text-gold uppercase hover:text-ivory transition-colors border-b border-gold/30 hover:border-ivory pb-1"
-            >
-              Back to Invitation
-            </button>
           </motion.div>
         )}
       </AnimatePresence>
