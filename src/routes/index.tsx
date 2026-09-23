@@ -14,7 +14,7 @@ import weddingBg from "@/assets/wedding_bg.webp";
 import spLogo from "@/assets/SP Logo.png";
 import ajayaImg from "@/assets/ajaya.jpeg";
 import ashokImg from "@/assets/ashok.jpeg";
-import rishiImg from "@/assets/rishi.jpeg";
+import rishiImg from "@/assets/rishi new.jpeg";
 import silviImg from "@/assets/Silvi.jpeg";
 import atharvaImg from "@/assets/atharva.jpeg";
 import { FloatingPetals } from "@/components/wedding/FloatingPetals";
