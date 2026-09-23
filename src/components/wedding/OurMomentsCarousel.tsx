@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, PanInfo } from "framer-motion";
 import { ChevronLeft, ChevronRight, Heart } from "lucide-react";
 import { Reveal } from "./Reveal";
@@ -14,6 +14,14 @@ const images = [img1, img2, img3, img4, img5, img6];
 
 export function OurMomentsCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
+
+  // Auto-play slider
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % images.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, []);
 
   const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
     const swipeThreshold = 50;
