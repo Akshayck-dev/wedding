@@ -11,6 +11,7 @@ import ganeshaImg from "@/assets/ChatGPT Image Sep 21, 2026, 12_43_39 PM.webp";
 import revealBg from "@/assets/media-generation-wedding-bg-pastel-watercolor-0-9d4d1e1e-3b4a-47b2-b37e-f67fa2d69e34 copy.webp";
 import preWeddingBg from "@/assets/pre_wedding_bg.webp";
 import weddingBg from "@/assets/wedding_bg.webp";
+import spLogo from "@/assets/SP Logo.png";
 import { FloatingPetals } from "@/components/wedding/FloatingPetals";
 import { FloatingButterflies } from "@/components/wedding/FloatingButterflies";
 import { Ornament } from "@/components/wedding/Ornament";
@@ -138,9 +139,9 @@ function Index() {
             {/* Calligraphy Initials logo */}
             <div 
               onClick={() => scrollToSection("invitation")}
-              className="font-script text-2xl text-gold-gradient tracking-wider pt-1 select-none cursor-pointer"
+              className="pt-1 select-none cursor-pointer"
             >
-              S &amp; P
+              <img src={spLogo} alt="S&P Logo" className="h-9 w-auto object-contain drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] opacity-90" />
             </div>
             
             {/* Decorative luxury menu lines */}
