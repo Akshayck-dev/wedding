@@ -1240,7 +1240,7 @@ function RsvpSection() {
       </Section>
 
     {/* ═══════ FAMILY ACKNOWLEDGEMENT SECTION ═══════ */}
-    <section className="w-full relative flex flex-col items-center pt-8 pb-20 px-4 overflow-hidden z-20">
+    <section className="w-full relative flex flex-col items-center pt-8 pb-4 px-4 overflow-hidden z-20">
       <motion.div 
         initial="hidden"
         whileInView="visible"
@@ -1428,7 +1428,7 @@ function RsvpSection() {
     </section>
 
     {/* ═══════ SHARE SECTION ═══════ */}
-    <section className="w-full relative flex flex-col items-center pt-8 pb-16 px-4 z-20">
+    <section className="w-full relative flex flex-col items-center pt-2 pb-16 px-4 z-20">
       <div className="flex flex-col items-center gap-4">
         <p className="text-[10px] sm:text-[11px] text-ivory/60 font-serif tracking-[0.1em] italic text-center max-w-xs">
           As we step into this new chapter, we'd love for you to be part of the very first page.
