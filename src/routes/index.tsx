@@ -1205,6 +1205,18 @@ function GallerySection() {
 function RsvpSection() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
+  // Disable body scroll when modal is open
+  useEffect(() => {
+    if (selectedImage) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedImage]);
+
   const handleWhatsAppShare = () => {
     const text = encodeURIComponent(
       "We are delighted to invite you to the wedding of Shreyasi & Purushottam.\n\nPlease view our wedding invitation and RSVP here:\n" +
@@ -1428,14 +1440,14 @@ function RsvpSection() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={() => setSelectedImage(null)}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-md p-4 cursor-zoom-out"
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 backdrop-blur-xl p-4 sm:p-8 cursor-zoom-out"
         >
           <button 
             onClick={(e) => {
               e.stopPropagation();
               setSelectedImage(null);
             }}
-            className="absolute top-4 right-4 sm:top-6 sm:right-6 z-[110] p-2 bg-black/40 rounded-full text-white/80 hover:text-white hover:bg-black/60 transition-colors cursor-pointer backdrop-blur-md shadow-lg"
+            className="fixed top-6 right-6 sm:top-8 sm:right-8 z-[10000] p-3 bg-white/10 rounded-full text-white hover:text-white hover:bg-white/20 transition-all cursor-pointer backdrop-blur-md shadow-2xl border border-white/20"
           >
             <X size={24} />
           </button>
@@ -1445,12 +1457,12 @@ function RsvpSection() {
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
             onClick={(e) => e.stopPropagation()}
-            className="relative max-w-[90vw] max-h-[85vh] flex flex-col items-center"
+            className="relative max-w-[95vw] max-h-[85vh] flex flex-col items-center justify-center"
           >
             <img 
               src={selectedImage} 
               alt="Family Member" 
-              className="w-auto h-auto max-w-full rounded-[24px] shadow-2xl border border-white/20 object-contain" 
+              className="w-auto h-auto max-w-full rounded-[24px] shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/20 object-contain" 
               style={{ maxHeight: '85vh' }}
             />
           </motion.div>
