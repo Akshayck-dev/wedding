@@ -334,7 +334,7 @@ function Hero({ onOpen }: { onOpen: () => void }) {
           transition={{ delay: 3.0, duration: 1, ease: "easeOut" }}
           className="flex flex-col items-center text-center w-full mb-0"
         >
-          <h1 className="font-script text-[64px] sm:text-[76px] text-[#5A3A3A] leading-[0.8] drop-shadow-[0_2px_4px_rgba(255,255,255,0.7)]">Shreyasi</h1>
+          <h1 className="font-script text-[64px] sm:text-[76px] text-[#5A3A3A] font-bold leading-[0.8] drop-shadow-[0_2px_4px_rgba(255,255,255,0.7)]">Shreyasi</h1>
         </motion.div>
 
         {/* & with subtle gold stars */}
@@ -356,7 +356,7 @@ function Hero({ onOpen }: { onOpen: () => void }) {
           transition={{ delay: 3.2, duration: 1, ease: "easeOut" }}
           className="flex flex-col items-center text-center w-full mb-3"
         >
-          <h1 className="font-script text-[54px] sm:text-[64px] text-[#5A3A3A] leading-[0.8] drop-shadow-[0_2px_4px_rgba(255,255,255,0.7)]">Purushottam</h1>
+          <h1 className="font-script text-[54px] sm:text-[64px] text-[#5A3A3A] font-bold leading-[0.8] drop-shadow-[0_2px_4px_rgba(255,255,255,0.7)]">Purushottam</h1>
         </motion.div>
 
         {/* Groom Parents */}
