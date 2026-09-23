@@ -43,16 +43,22 @@ const PRE_WEDDING_APPLE_MAPS_URL =
 
 const PRE_WEDDING_GOOGLE_CALENDAR_URL =
   "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pre-Wedding+Celebrations+-+Shreyasi+%26+Purushottam&dates=20261123T123000Z/20261123T173000Z&details=Join+us+for+Haldi,+Mehendi,+and+Sangeet.&location=Royal+Orchid+Central,+Bengaluru";
-const PRE_WEDDING_APPLE_CALENDAR_URL =
-  "data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ADTSTART:20261123T123000Z%0ADTEND:20261123T173000Z%0ASUMMARY:Pre-Wedding Celebrations - Shreyasi %26 Purushottam%0ADESCRIPTION:Join us for Haldi, Mehendi, and Sangeet.%0ALOCATION:Royal Orchid Central, Bengaluru%0AEND:VEVENT%0AEND:VCALENDAR";
+const PRE_WEDDING_APPLE_CALENDAR_URL = "/pre_wedding.ics";
 
 const GOOGLE_CALENDAR_URL =
   "https://calendar.google.com/calendar/render?action=TEMPLATE&text=The+Wedding+-+Shreyasi+%26+Purushottam&dates=20261125T133000Z/20261125T173000Z&details=Join+us+for+our+wedding+celebration.&location=The+Ritz-Carlton,+Bengaluru";
-const APPLE_CALENDAR_URL =
-  "data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ADTSTART:20261125T133000Z%0ADTEND:20261125T173000Z%0ASUMMARY:The Wedding - Shreyasi %26 Purushottam%0ADESCRIPTION:Join us for our wedding celebration.%0ALOCATION:The Ritz-Carlton, Bengaluru%0AEND:VEVENT%0AEND:VCALENDAR";
+const APPLE_CALENDAR_URL = "/wedding.ics";
 
-const isAppleDevice = () => {
-  return /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) || /MacIntel/.test(navigator.platform);
+const useIsAppleDevice = () => {
+  const [isApple, setIsApple] = useState(false);
+  useEffect(() => {
+    setIsApple(
+      /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) || 
+      /MacIntel/.test(navigator.platform)
+    );
+  }, []);
+  return isApple;
 };
 
 
@@ -410,6 +416,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 
 /* ---------------- Reveal Section ---------------- */
 function RevealSection() {
+  const isApple = useIsAppleDevice();
   const [isDateRevealed, setIsDateRevealed] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
   const [showMapChoice, setShowMapChoice] = useState(false);
@@ -611,10 +618,10 @@ function RevealSection() {
                 Directions
               </button>
               <a
-                href={isAppleDevice() ? PRE_WEDDING_APPLE_CALENDAR_URL : PRE_WEDDING_GOOGLE_CALENDAR_URL}
-                target={isAppleDevice() ? "_self" : "_blank"}
+                href={isApple ? PRE_WEDDING_APPLE_CALENDAR_URL : PRE_WEDDING_GOOGLE_CALENDAR_URL}
+                target={isApple ? "_self" : "_blank"}
                 rel="noopener noreferrer"
-                download={isAppleDevice() ? "pre_wedding.ics" : undefined}
+                download={isApple ? "pre_wedding.ics" : undefined}
                 className="inline-flex items-center gap-2 rounded-full border border-gold bg-maroon/90 px-6 py-2.5 text-[10px] font-bold tracking-[0.2em] text-ivory uppercase hover:bg-maroon transition-all duration-300 shadow-md cursor-pointer"
               >
                 <Calendar size={12} className="text-gold" />
@@ -742,10 +749,10 @@ function RevealSection() {
                 Directions
               </button>
               <a
-                href={isAppleDevice() ? APPLE_CALENDAR_URL : GOOGLE_CALENDAR_URL}
-                target={isAppleDevice() ? "_self" : "_blank"}
+                href={isApple ? APPLE_CALENDAR_URL : GOOGLE_CALENDAR_URL}
+                target={isApple ? "_self" : "_blank"}
                 rel="noopener noreferrer"
-                download={isAppleDevice() ? "wedding.ics" : undefined}
+                download={isApple ? "wedding.ics" : undefined}
                 className="inline-flex items-center gap-2 rounded-full border border-gold bg-maroon/90 px-6 py-2.5 text-[10px] font-bold tracking-[0.2em] text-ivory uppercase hover:bg-maroon transition-all duration-300 shadow-md cursor-pointer"
               >
                 <Calendar size={12} className="text-gold" />

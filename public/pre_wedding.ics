@@ -1,0 +1,11 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Shreyasi and Purushottam//Wedding//EN
+BEGIN:VEVENT
+DTSTART:20261123T123000Z
+DTEND:20261123T173000Z
+SUMMARY:Pre-Wedding Celebrations - Shreyasi & Purushottam
+DESCRIPTION:Join us for Haldi, Mehendi, and Sangeet.
+LOCATION:Royal Orchid Central, Bengaluru
+END:VEVENT
+END:VCALENDAR
