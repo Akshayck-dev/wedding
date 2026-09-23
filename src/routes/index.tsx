@@ -16,6 +16,7 @@ import ajayaImg from "@/assets/ajaya.jpeg";
 import ashokImg from "@/assets/ashok.jpeg";
 import rishiImg from "@/assets/rishi.jpeg";
 import silviImg from "@/assets/Silvi.jpeg";
+import atharvaImg from "@/assets/atharva.jpeg";
 import { FloatingPetals } from "@/components/wedding/FloatingPetals";
 import { FloatingButterflies } from "@/components/wedding/FloatingButterflies";
 import { Ornament } from "@/components/wedding/Ornament";
@@ -1351,7 +1352,7 @@ function RsvpSection() {
               {[
                 { name: 'Silvi', img: silviImg }, 
                 { name: 'Rishi', img: rishiImg }, 
-                { name: 'Atharva', img: null }
+                { name: 'Atharva', img: atharvaImg }
               ].map((member, i) => (
                 <motion.div 
                   key={member.name} 
