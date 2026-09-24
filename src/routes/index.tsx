@@ -330,7 +330,7 @@ function Hero({ onOpen }: { onOpen: () => void }) {
           <p className="text-[11px] sm:text-[12px] leading-[2] text-[#2C1810] font-serif tracking-[0.2em] uppercase">
             <span className="font-bold text-[#7A5A29] tracking-[0.25em]">WITH HEARTS FULL OF GRATITUDE</span><br/>
             <span className="block my-1"><span className="text-[#1A0F0A] font-bold">DR. AJAYA NATH</span><br/><span className="text-[9px] text-[#D4AF37] font-semibold my-0 block">AND</span><span className="text-[#1A0F0A] font-bold">LATE DR. ASHOK KUMAR</span></span>
-            <span className="text-[#2C1810] normal-case italic font-serif text-[13px] tracking-widest">Joyfully invite you to celebrate</span><br/>
+            <span className="text-[#2C1810] normal-case italic font-serif text-[13px] tracking-widest">JOYFULLY INVITE YOU TO CELEBRATE</span><br/>
             <span className="block mt-1 font-bold text-[#7A5A29] tracking-[0.25em]">THE WEDDING<br/>FESTIVITIES OF THEIR DAUGHTER</span>
           </p>
         </motion.div>
