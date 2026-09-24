@@ -152,8 +152,16 @@ function RootShell({ children }: { children: ReactNode }) {
       lenis.scrollTo(0, { immediate: true });
     }, 100);
 
+    // This is the most reliable way to prevent browsers from saving the scroll position
+    // across refreshes. It scrolls to the top right before the page unloads/refreshes.
+    const handleBeforeUnload = () => {
+      window.scrollTo(0, 0);
+    };
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
     return () => {
       window.removeEventListener('pageshow', handlePageShow);
+      window.removeEventListener('beforeunload', handleBeforeUnload);
       clearTimeout(timer);
       // @ts-ignore
       window.lenis = undefined;
