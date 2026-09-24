@@ -496,7 +496,7 @@ function RevealSection() {
                   <path d="M12 2c-2-1-3 0-3 0" />
                 </svg>
                 <h4 className="text-[14px] sm:text-[15px] font-serif tracking-[0.35em] text-[#FFF8E7] uppercase mb-5 text-center font-medium drop-shadow-sm opacity-95">
-                  The Countdown Begins
+                  The Countdown 
                 </h4>
                 
                 {/* Thin gold divider with diamond */}
