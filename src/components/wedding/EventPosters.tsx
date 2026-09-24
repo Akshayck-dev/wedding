@@ -5,7 +5,7 @@ import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 import haldiImg from "@/assets/haldi-poster.webp";
 import mehendiImg from "@/assets/mehendi-poster.webp";
-import sangeetImg from "@/assets/sangeet-poster.webp";
+import sangeetImg from "@/assets/ChatGPT Image Sep 24, 2026, 12_48_24 PM.png";
 
 const POSTERS = [
   { id: "haldi", src: haldiImg, alt: "Haldi Event Poster" },
