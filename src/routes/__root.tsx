@@ -121,6 +121,14 @@ function RootShell({ children }: { children: ReactNode }) {
       history.scrollRestoration = 'manual';
     }
     window.scrollTo(0, 0);
+    
+    // Handle BFCache (Back-Forward Cache) to force a reload if the page is restored
+    const handlePageShow = (e: PageTransitionEvent) => {
+      if (e.persisted) {
+        window.location.reload();
+      }
+    };
+    window.addEventListener('pageshow', handlePageShow);
 
     const lenis = new Lenis({
       autoRaf: true,
@@ -129,13 +137,24 @@ function RootShell({ children }: { children: ReactNode }) {
     // @ts-ignore
     window.lenis = lenis;
     
+    // Ensure we start at the top
+    lenis.scrollTo(0, { immediate: true });
+    
     function raf(time: number) {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
     requestAnimationFrame(raf);
 
+    // Also forcefully scroll to top a bit after load to combat browser quirks
+    const timer = setTimeout(() => {
+      window.scrollTo(0, 0);
+      lenis.scrollTo(0, { immediate: true });
+    }, 100);
+
     return () => {
+      window.removeEventListener('pageshow', handlePageShow);
+      clearTimeout(timer);
       // @ts-ignore
       window.lenis = undefined;
       lenis.destroy();
