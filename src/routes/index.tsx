@@ -1360,7 +1360,7 @@ function RsvpSection() {
               {[
                 { name: 'Silvi', img: silviImg }, 
                 { name: 'Rishi', img: rishiNewImg }, 
-                { name: 'Atharva', img: atharvaImg }
+                { name: 'Atharv', img: atharvaImg }
               ].map((member, i) => (
                 <motion.div 
                   key={member.name} 
