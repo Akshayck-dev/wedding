@@ -328,7 +328,7 @@ function Hero({ onOpen }: { onOpen: () => void }) {
           className="text-center mb-3 max-w-[340px] px-6 sm:px-8"
         >
           <p className="text-[11px] sm:text-[12px] leading-[2] text-[#2C1810] font-serif tracking-[0.2em] uppercase">
-            <span className="font-bold text-[#7A5A29] tracking-[0.25em]">WITH HEARTS FULL OF JOY</span><br/>
+            <span className="font-bold text-[#7A5A29] tracking-[0.25em]">WITH HEARTS FULL OF GRATITUDE</span><br/>
             <span className="block my-1"><span className="text-[#1A0F0A] font-bold">DR. AJAYA NATH</span><br/><span className="text-[9px] text-[#D4AF37] font-semibold my-0 block">AND</span><span className="text-[#1A0F0A] font-bold">LATE DR. ASHOK KUMAR</span></span>
             <span className="text-[#2C1810] lowercase italic font-serif text-[13px] tracking-widest">joyfully invite you to celebrate</span><br/>
             <span className="block mt-1 font-bold text-[#7A5A29] tracking-[0.25em]">THE WEDDING<br/>FESTIVITIES OF THEIR DAUGHTER</span>
@@ -613,7 +613,7 @@ function RevealSection() {
               variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
               transition={{ duration: 0.8 }}
             >
-              Pre-Wedding<br className="sm:hidden" /> Celebrations
+              Pre-Wedding<br className="sm:hidden" /> Celebrations On
             </motion.h3>
 
             {/* Date & Time */}
@@ -743,7 +743,7 @@ function RevealSection() {
               variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
               transition={{ duration: 0.8 }}
             >
-              The Wedding
+              The Wedding On
             </motion.h3>
 
             {/* Date & Time */}
