@@ -114,6 +114,12 @@ import Lenis from "lenis";
 
 function RootShell({ children }: { children: ReactNode }) {
   useEffect(() => {
+    // Prevent browser from restoring previous scroll position on reload
+    if (typeof window !== 'undefined' && 'scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+
     const lenis = new Lenis({
       autoRaf: true,
     });
