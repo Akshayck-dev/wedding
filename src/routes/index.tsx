@@ -613,7 +613,7 @@ function RevealSection() {
               variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
               transition={{ duration: 0.8 }}
             >
-              Pre-Wedding<br className="sm:hidden" /> Celebrations On
+              Pre-Wedding<br className="sm:hidden" /> Celebrations
             </motion.h3>
 
             {/* Date & Time */}
@@ -743,7 +743,7 @@ function RevealSection() {
               variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
               transition={{ duration: 0.8 }}
             >
-              The Wedding On
+              The Wedding
             </motion.h3>
 
             {/* Date & Time */}
